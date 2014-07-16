@@ -1,5 +1,5 @@
-lolCalc.service("lolService", [ "utilService",
-	function(utilService) {
+lolCalc.service("lolService", ["$q", "utilService",
+	function($q, utilService) {
 
 		var authKey = "1b372fc4-967d-4bda-b314-2a679fa18ec7",
 			region = "na",
@@ -15,7 +15,8 @@ lolCalc.service("lolService", [ "utilService",
 			staticUrl = "/v1.2/",
 			playerStatsUrl = "/v1.3/stats/by-summoner/",
 			summUrl = "/v1.4/summoner/",
-			teamUrl = "/v2.3/team/";
+			teamUrl = "/v2.3/team/",
+			deferred = $q.defer();
 
 		var	basicCallback = function(error, jsonObj){
 				if(error) {
@@ -31,7 +32,11 @@ lolCalc.service("lolService", [ "utilService",
 		this.getChampById = function(champId, callback) {
 			champId = typeof champId === "undefined" ? "" : "/"+champId;
 			url = utilService.createUrl(authKey, region, baseUrl, champUrl+champId);
-			utilService.getRequest(url, callback);
+			utilService.getRequest(url, callback)
+			.then(function(data){
+				deferred.resolve(data);
+			});
+			return deferred.promise;
 		};
 
 		// /api/lol/{region}/v1.3/game/by-summoner/{summonerId}/recent

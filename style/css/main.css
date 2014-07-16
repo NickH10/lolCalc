@@ -7,8 +7,8 @@
   justify-content: space-between;
   flex-direction: row;
   align-items: center; }
-  .main-header select, .main-header button, .main-header input {
-    font-size: 1rem !important;
+  .main-header button, .main-header input {
+    font-size: 1.5rem !important;
     margin: 10px !important; }
   .main-header .center-block {
     display: flex;
@@ -19,6 +19,7 @@
   background-color: #4b4d4e; }
 
 .docNav {
+  font-size: 16px;
   background: #595B5B;
   box-shadow: 0 0 0 1px #303233;
   border: none;
