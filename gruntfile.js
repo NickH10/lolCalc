@@ -3,39 +3,6 @@ module.exports = function(grunt) {
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    uglify: {
-      options: {
-        banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
-      },
-      build: {
-        src: 'src/<%= pkg.name %>.js',
-        dest: 'build/<%= pkg.name %>.min.js'
-      }
-    },
-    // connect: {
-    //   dev: {
-    //     options: {
-    //       port: 8000,
-    //       hostname: 'localhost',
-    //       keepalive: true
-    //     },
-    //     livereload: {
-    //       options: {
-    //         port: 8000,
-    //         hostname: 'localhost',
-    //         middleware: function (connect) {
-    //           return [
-    //             function(req, res, next) {
-    //               res.setHeader('Access-Control-Allow-Origin', 'http://0.0.0.0:8000');
-    //               res.setHeader('Access-Control-Allow-Methods', 'http://0.0.0.0:8000');
-    //               next();
-    //             },
-    //           ];
-    //         }
-    //       }
-    //     }
-    //   }
-    // },
     connect: {
       dev: {
         options: {
@@ -60,13 +27,6 @@ module.exports = function(grunt) {
         }
       }
     },
-
-    // open: {
-    //   dev: {
-    //     path: 'http://localhost:8999'
-    //   }
-    // },
-
     watch: {
       options: {
         nospawn: true
@@ -89,22 +49,28 @@ module.exports = function(grunt) {
           'src/main/*.html'
         ]
       }
-    }     
-    // watch: {
-    // html: {
-    //     files: ['index.html'],
-    //     tasks: ['htmlhint']
+    },
+    // sass: {
+    //   dist: {
+    //     files: {
+    //       'style/style.css' : 'sass/style.scss'
+    //     }
     //   }
-    // }
+    // },
+    // watch: {
+    //   css: {
+    //     files: '**/*.scss',
+    //     tasks: ['sass']
+    //   }
+    // }   
   });
 
   // Load the plugin that provides the "uglify" task.
-  grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-sass');
 
   // Default task(s).
-  grunt.registerTask('default', ['uglify']);
   // grunt.registerTask('server', ['connect:dev']);
   grunt.registerTask('server', ['connect:dev', 'watch']);
 
