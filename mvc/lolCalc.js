@@ -16,8 +16,4 @@ var lolCalc = angular.module("lolCalc",["ngRoute"])
 		templateUrl:"mvc/views/error.html"
 	})
 
-	// .when("/edit/:projectId", {
-	// 	controller:"EditCtrl",
-	// 	templateUrl:"detail.html"
-	// })
 })

@@ -15,8 +15,8 @@ lolCalc.service("lolService", ["$q", "utilService",
 			staticUrl = "/v1.2/",
 			playerStatsUrl = "/v1.3/stats/by-summoner/",
 			summUrl = "/v1.4/summoner/",
-			teamUrl = "/v2.3/team/",
-			deferred = $q.defer();
+			teamUrl = "/v2.3/team/";
+			// deferred = $q.defer();
 
 		var	basicCallback = function(error, jsonObj){
 				if(error) {
@@ -30,7 +30,8 @@ lolCalc.service("lolService", ["$q", "utilService",
 		// /api/lol/{region}/v1.2/champion
 		// /api/lol/{region}/v1.2/champion/{id}
 		this.getChampById = function(champId, callback) {
-			champId = typeof champId === "undefined" ? "" : "/"+champId+"?";
+			var deferred = $q.defer();
+			champId = (typeof champId === "undefined" ? "" : "/"+champId+"?");
 			url = utilService.createUrl(authKey, region, baseUrl, champUrl+champId);
 			utilService.getRequest(url)
 			.then(function(data){
@@ -41,7 +42,9 @@ lolCalc.service("lolService", ["$q", "utilService",
 
 		 // /api/lol/static-data/{region}/v1.2/{inputType}/{id}
 		this.getChampData = function(id) {
-			id = "champion/"+id+"?champData=all&";
+			var deferred = $q.defer();
+			id = (typeof id === "undefined" ? "" : "champion/"+id+"?champData=all&");
+			// id="champion/?champData=all&"
 			url = utilService.createUrl(authKey, region, baseUrl+staticData, staticUrl+id);
 			utilService.getRequest(url)
 			.then(function(data){

@@ -1,17 +1,17 @@
-lolCalc.controller("champCtrl", ["$scope", "$q", "$routeParams", "$timeout", "lolService",
-	function($scope, $q, $routeParams, $timeout, lolService) {
+lolCalc.controller("champCtrl", ["$scope", "$q", "$routeParams", "lolService", "dataService",
+	function($scope, $q, $routeParams, lolService, dataService) {
 		this.init = function(){
 			$scope.loaded = false;
-			if(isNaN($routeParams.champId)){ //champ name
-				// lolService.getChampBy
+			var champId = $routeParams.champId;
+			if(isNaN(champId)){ //champ name
+				champId = dataService.returnChampId(champId);
 			}
-			else { //champ id
-				lolService.getChampData($routeParams.champId)
-				.then(function(data){
-					$scope.loaded = true;
-					console.log(data);
-				});
-			}
+			lolService.getChampData(champId)
+			.then(function(data){
+				//TODO failure case
+				$scope.loaded = true;
+				console.log(data);
+			});
 		};
 		this.init();
 	}
