@@ -30,9 +30,20 @@ lolCalc.service("lolService", ["$q", "utilService",
 		// /api/lol/{region}/v1.2/champion
 		// /api/lol/{region}/v1.2/champion/{id}
 		this.getChampById = function(champId, callback) {
-			champId = typeof champId === "undefined" ? "" : "/"+champId;
+			champId = typeof champId === "undefined" ? "" : "/"+champId+"?";
 			url = utilService.createUrl(authKey, region, baseUrl, champUrl+champId);
-			utilService.getRequest(url, callback)
+			utilService.getRequest(url)
+			.then(function(data){
+				deferred.resolve(data);
+			});
+			return deferred.promise;
+		};
+
+		 // /api/lol/static-data/{region}/v1.2/{inputType}/{id}
+		this.getChampData = function(id) {
+			id = "champion/"+id+"?champData=all&";
+			url = utilService.createUrl(authKey, region, baseUrl+staticData, staticUrl+id);
+			utilService.getRequest(url)
 			.then(function(data){
 				deferred.resolve(data);
 			});
@@ -41,14 +52,14 @@ lolCalc.service("lolService", ["$q", "utilService",
 
 		// /api/lol/{region}/v1.3/game/by-summoner/{summonerId}/recent
 		this.getRecentGamesBySummId = function(summId, callback) {
-			url = utilService.createUrl(authKey, region, baseUrl, gameUrl+summId+"/recent");
+			url = utilService.createUrl(authKey, region, baseUrl, gameUrl+summId+"/recent?");
 			utilService.getRequest(url, callback);
 		};
 
 		// /api/lol/{region}/v2.4/league/by-summoner/{summonerIds}
 		// /api/lol/{region}/v2.4/league/by-summoner/{summonerIds}/entry
 		this.getLeagueMappedBySummIds = function(summIds, ifEntry, callback) {
-			summIds = ifEntry ? summIds+"/entry" : summIds
+			summIds = ifEntry ? summIds+"/entry?" : summIds + "?"
 			url = utilService.createUrl(authKey, region, baseUrl, leagueUrl+bySumm+summIds);
 			utilService.getRequest(url, callback);
 		};
@@ -56,38 +67,42 @@ lolCalc.service("lolService", ["$q", "utilService",
 		// /api/lol/{region}/v2.4/league/by-team/{teamIds}
 		// /api/lol/{region}/v2.4/league/by-team/{teamIds}/entry
 		this.getLeagueMappedByTeamIds = function(teamIds, ifEntry, callback) {
-			teamIds = ifEntry ? teamIds+"/entry" : teamIds
+			teamIds = ifEntry ? teamIds+"/entry?" : teamIds +"?"
 			url = utilService.createUrl(authKey, region, baseUrl, leagueUrl+byTeam+teamIds);
 			utilService.getRequest(url, callback);
 		};
 
 		// /api/lol/{region}/v2.4/league/challenger
 		this.getChallengerTierLeagues = function(callback) {
-			url = utilService.createUrl(authKey, region, baseUrl, leagueUrl+"/challenger");
+			url = utilService.createUrl(authKey, region, baseUrl, leagueUrl+"/challenger?");
 			utilService.getRequest(url, callback);
 		};
 
 		 // /api/lol/static-data/{region}/v1.2/{inputType}/{id}
-		this.getStaticData = function(inputType, id, callback) {
+		this.getStaticData = function(inputType, id) {
 			// realm and versions do not have id search
-			var type = ["champion", "item", "mastery", "rune", "summoner-spell", "realm", "versions"];
+			var type = ["item", "mastery", "rune", "summoner-spell", "realm", "versions"];
 			if(type.indexOf(inputType) == -1 && typeof inputType !== "undefined") return;
-			id = typeof id === "undefined" ? "" : "/"+id;
+			id = typeof id === "undefined" ? "" : "/"+id+"?" +inputType +"Data=all&";
 			url = utilService.createUrl(authKey, region, baseUrl+staticData, staticUrl+inputType+id);
-			utilService.getRequest(url, callback);
+			utilService.getRequest(url)
+			.then(function(data){
+				deferred.resolve(data);
+			});
+			return deferred.promise;
 		};
 
 		// /api/lol/{region}/v1.3/stats/by-summoner/{summonerId}/ranked
 		// /api/lol/{region}/v1.3/stats/by-summoner/{summonerId}/summary
 		this.getPlayerStatsBySummId = function(summId, rankOrSumm, callback) {
-			var endUrl = playerStatsUrl + summId + "/" + rankOrSumm
+			var endUrl = playerStatsUrl + summId + "/" + rankOrSumm + "?";
 			url = utilService.createUrl(authKey, region, baseUrl, endUrl);
 			utilService.getRequest(url, callback);
 		};
 
 		// /api/lol/{region}/v1.4/summoner/by-name/{summonerNames}
 		this.getSummonerByName = function(summName, callback) {
-			url = utilService.createUrl(authKey, region, baseUrl, summUrl+"by-name/"+summName);
+			url = utilService.createUrl(authKey, region, baseUrl, summUrl+"by-name/"+summName + "?");
 			utilService.getRequest(url, callback);
 		};
 
@@ -96,20 +111,20 @@ lolCalc.service("lolService", ["$q", "utilService",
 			//can be called without an inputType
 			var type = ["name", "runes", "masteries"];
 			if(type.indexOf(inputType) == -1 && typeof inputType !== "undefined") return;
-			var endUrl = typeof inputType === "undefined" ? summIds : summIds +"/" + inputType;
+			var endUrl = typeof inputType === "undefined" ? summIds : summIds +"/" + inputType+"?";
 			url = utilService.createUrl(authKey, region, baseUrl, summUrl+endUrl);
 			utilService.getRequest(url, callback);
 		};
 
 		// /api/lol/{region}/v2.3/team/by-summoner/{summonerIds}
 		this.getTeamBySummonerIds = function(summId, callback) {
-			url = utilService.createUrl(authKey, region, baseUrl, teamUrl+"by-summoner/"+summId);
+			url = utilService.createUrl(authKey, region, baseUrl, teamUrl+"by-summoner/"+summId+"?");
 			utilService.getRequest(url, callback);
 		}
 
 		// /api/lol/{region}/v2.3/team/{teamIds}
 		this.getTeamByTeamIds = function(teamId, callback) {
-			url = utilService.createUrl(authKey, region, baseUrl, teamUrl+teamId);
+			url = utilService.createUrl(authKey, region, baseUrl, teamUrl+teamId+"?");
 			utilService.getRequest(url, callback);
 		}
 	}
