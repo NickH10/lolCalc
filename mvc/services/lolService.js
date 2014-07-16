@@ -1,0 +1,111 @@
+lolCalc.service("lolService", [ "utilService",
+	function(utilService) {
+
+		var authKey = "1b372fc4-967d-4bda-b314-2a679fa18ec7",
+			region = "na",
+			url = "";
+
+		var baseUrl = "api.pvp.net/api/lol",
+			champUrl = "/v1.2/champion",
+			gameUrl = "/v1.3/game/by-summoner/",
+			leagueUrl = "/v2.4/league",
+			bySumm = "/by-summoner/",
+			byTeam = "/by-team/",
+			staticData = "/static-data",
+			staticUrl = "/v1.2/",
+			playerStatsUrl = "/v1.3/stats/by-summoner/",
+			summUrl = "/v1.4/summoner/",
+			teamUrl = "/v2.3/team/";
+
+		var	basicCallback = function(error, jsonObj){
+				if(error) {
+					console.log(error);
+				}
+				else {
+					console.log(jsonObj);
+				}
+			};
+
+		// /api/lol/{region}/v1.2/champion
+		// /api/lol/{region}/v1.2/champion/{id}
+		this.getChampById = function(champId, callback) {
+			champId = typeof champId === "undefined" ? "" : "/"+champId;
+			url = utilService.createUrl(authKey, region, baseUrl, champUrl+champId);
+			utilService.getRequest(url, callback);
+		};
+
+		// /api/lol/{region}/v1.3/game/by-summoner/{summonerId}/recent
+		this.getRecentGamesBySummId = function(summId, callback) {
+			url = utilService.createUrl(authKey, region, baseUrl, gameUrl+summId+"/recent");
+			utilService.getRequest(url, callback);
+		};
+
+		// /api/lol/{region}/v2.4/league/by-summoner/{summonerIds}
+		// /api/lol/{region}/v2.4/league/by-summoner/{summonerIds}/entry
+		this.getLeagueMappedBySummIds = function(summIds, ifEntry, callback) {
+			summIds = ifEntry ? summIds+"/entry" : summIds
+			url = utilService.createUrl(authKey, region, baseUrl, leagueUrl+bySumm+summIds);
+			utilService.getRequest(url, callback);
+		};
+
+		// /api/lol/{region}/v2.4/league/by-team/{teamIds}
+		// /api/lol/{region}/v2.4/league/by-team/{teamIds}/entry
+		this.getLeagueMappedByTeamIds = function(teamIds, ifEntry, callback) {
+			teamIds = ifEntry ? teamIds+"/entry" : teamIds
+			url = utilService.createUrl(authKey, region, baseUrl, leagueUrl+byTeam+teamIds);
+			utilService.getRequest(url, callback);
+		};
+
+		// /api/lol/{region}/v2.4/league/challenger
+		this.getChallengerTierLeagues = function(callback) {
+			url = utilService.createUrl(authKey, region, baseUrl, leagueUrl+"/challenger");
+			utilService.getRequest(url, callback);
+		};
+
+		 // /api/lol/static-data/{region}/v1.2/{inputType}/{id}
+		this.getStaticData = function(inputType, id, callback) {
+			// realm and versions do not have id search
+			var type = ["champion", "item", "mastery", "rune", "summoner-spell", "realm", "versions"];
+			if(type.indexOf(inputType) == -1 && typeof inputType !== "undefined") return;
+			id = typeof id === "undefined" ? "" : "/"+id;
+			url = utilService.createUrl(authKey, region, baseUrl+staticData, staticUrl+inputType+id);
+			utilService.getRequest(url, callback);
+		};
+
+		// /api/lol/{region}/v1.3/stats/by-summoner/{summonerId}/ranked
+		// /api/lol/{region}/v1.3/stats/by-summoner/{summonerId}/summary
+		this.getPlayerStatsBySummId = function(summId, rankOrSumm, callback) {
+			var endUrl = playerStatsUrl + summId + "/" + rankOrSumm
+			url = utilService.createUrl(authKey, region, baseUrl, endUrl);
+			utilService.getRequest(url, callback);
+		};
+
+		// /api/lol/{region}/v1.4/summoner/by-name/{summonerNames}
+		this.getSummonerByName = function(summName, callback) {
+			url = utilService.createUrl(authKey, region, baseUrl, summUrl+"by-name/"+summName);
+			utilService.getRequest(url, callback);
+		};
+
+		// /api/lol/{region}/v1.4/summoner/{summonerIds}/{{inputType}}
+		this.getInputTypeBySummIds = function(summIds, inputType, callback) {
+			//can be called without an inputType
+			var type = ["name", "runes", "masteries"];
+			if(type.indexOf(inputType) == -1 && typeof inputType !== "undefined") return;
+			var endUrl = typeof inputType === "undefined" ? summIds : summIds +"/" + inputType;
+			url = utilService.createUrl(authKey, region, baseUrl, summUrl+endUrl);
+			utilService.getRequest(url, callback);
+		};
+
+		// /api/lol/{region}/v2.3/team/by-summoner/{summonerIds}
+		this.getTeamBySummonerIds = function(summId, callback) {
+			url = utilService.createUrl(authKey, region, baseUrl, teamUrl+"by-summoner/"+summId);
+			utilService.getRequest(url, callback);
+		}
+
+		// /api/lol/{region}/v2.3/team/{teamIds}
+		this.getTeamByTeamIds = function(teamId, callback) {
+			url = utilService.createUrl(authKey, region, baseUrl, teamUrl+teamId);
+			utilService.getRequest(url, callback);
+		}
+	}
+]);

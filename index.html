@@ -1,0 +1,40 @@
+<html ng-app="lolCalc">
+
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.14/angular.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.14/angular-route.min.js"></script>
+
+		<!-- // <script src="bundle.js"></script> -->
+		<script src="mvc/lolCalc.js"></script>
+		<script src="mvc/controllers/searchController.js"></script>
+		<script src="mvc/controllers/champController.js"></script>
+
+		<script src="mvc/services/searchService.js"></script>
+		<script src="mvc/services/lolService.js"></script>
+		<script src="mvc/services/utilService.js"></script>
+
+		<script src="mvc/directives.js"></script>
+		
+		<link rel="stylesheet" type="text/css" href="style/css/topcoat-desktop-dark.css"></link>
+		<link rel="stylesheet" type="text/css" href="style/css/main.css"></link>
+	</head>
+
+	<body>
+		<div class="main-header" ng-controller="searchCtrl">
+			<a href="#" ng-click="goHome()">Home</a>
+			<div class="center-block">
+				<span>Search for: </span>
+				<select class="docnav" ng-model="userSelection" ng-options="val for (key, val) in selections"></select>
+				<input class="topcoat-text-input--large" ng-model="searchVal" placeholder="Find {{placeSub}}" ng-enter="search()">
+				<button class="topcoat-button--large--cta" ng-click="search()">Search</button>
+			</div>
+			<div></div>
+		</div>
+
+		<div class="border"></div>
+
+		<div class="loading-screen" ng-include src="'mvc/views/loading.html'"></div>
+		<div class="main-body" ng-show="loaded" ng-view></div>
+	</body>
+
+</html>

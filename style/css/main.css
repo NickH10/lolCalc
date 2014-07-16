@@ -1,0 +1,33 @@
+.border {
+  border-bottom: 3px solid #58595A; }
+
+.main-header {
+  display: flex;
+  padding: 30px 20px;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center; }
+  .main-header select, .main-header button, .main-header input {
+    font-size: 1rem !important;
+    margin: 10px !important; }
+  .main-header .center-block {
+    display: flex;
+    align-items: center; }
+
+.main-body {
+  padding: 30px 20px;
+  background-color: #4b4d4e; }
+
+.docNav {
+  background: #595B5B;
+  box-shadow: 0 0 0 1px #303233;
+  border: none;
+  color: #FFF;
+  overflow: hidden;
+  padding: 3px 20px 4px 8px; }
+
+.loading-screen {
+  position: absolute !important;
+  padding: 30px 20px;
+  top: 110px;
+  z-index: -100; }
