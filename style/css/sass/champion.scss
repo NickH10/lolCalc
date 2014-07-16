@@ -1,0 +1,10 @@
+.character-header {
+	border: 3px solid #58595A;
+	display:flex;
+	justify-content: space-between;
+	align-items: center;
+	img {
+		display: inline-block
+		float: right;
+	}
+}

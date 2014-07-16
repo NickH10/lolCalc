@@ -59,7 +59,7 @@ lolCalc.service("dataService", [
             "MAOKAI": 57,
             "MASTERYI": 11,
             "MISSFORTUNE": 21,
-            "MONKEYKING": 62,
+            // "MONKEYKING": 62,
             "MORDEKAISER": 82,
             "MORGANA": 25,
             "NAMI": 267,
@@ -111,6 +111,7 @@ lolCalc.service("dataService", [
             "VLADIMIR": 8,
             "VOLIBEAR": 106,
             "WARWICK": 19,
+            "WUKONG": 62,
             "XERATH": 101,
             "XINZHAO": 5,
             "YASUO": 157,
@@ -120,7 +121,8 @@ lolCalc.service("dataService", [
             "ZIGGS": 115,
             "ZILEAN": 26,
             "ZYRA": 143
-        }
+        };
+        this.dragonVersion = "4.12.2";
 
         this.returnChampId = function(champName) {
             champName = champName.replace(/[^A-Z0-9]/ig, "").toUpperCase();

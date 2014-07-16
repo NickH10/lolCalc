@@ -31,6 +31,7 @@ lolCalc.service("lolService", ["$q", "utilService",
 		// /api/lol/{region}/v1.2/champion/{id}
 		this.getChampById = function(champId, callback) {
 			var deferred = $q.defer();
+			alert(champId);
 			champId = (typeof champId === "undefined" ? "" : "/"+champId+"?");
 			url = utilService.createUrl(authKey, region, baseUrl, champUrl+champId);
 			utilService.getRequest(url)
