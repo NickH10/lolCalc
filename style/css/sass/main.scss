@@ -1,6 +1,8 @@
 // TODO set up font stuff
 $shadow-color: #303233;
 $background-color: #4b4d4e;
+$regular-font-size: 1rem;
+$large-font-size: 1.5rem;
 
 .border {
 	border-bottom: 3px solid #58595A;
@@ -8,12 +10,13 @@ $background-color: #4b4d4e;
 
 .main-header {
 	display: flex;
-	padding: 2rem 10rem;
+	padding: 2rem 10rem 1rem 10rem;
 	justify-content: space-between;
 	flex-direction: row;
 	align-items: center;
-	button, input {
-		font-size: 1.5rem !important;
+	.topcoat-text-input--large, 
+	.topcoat-button--large--cta {
+		font-size: $large-font-size !important;
 		margin: 10px !important;
 	}
 	.center-block {
@@ -28,8 +31,14 @@ $background-color: #4b4d4e;
 	background-color: $background-color;
 }
 
+.topcoat-button-bar {
+	display: flex;
+	justify-content: center;
+	font-size: $regular-font-size;
+}
+
 .docNav {
-	font-size: 16px;
+	font-size: $regular-font-size;
 	background: #595B5B;
 	box-shadow: 0 0 0 1px $shadow-color ;
 	border: none;
@@ -40,7 +49,7 @@ $background-color: #4b4d4e;
 
 .loading-screen {
 	position: absolute !important;
-	padding: 30px 20px;
+	padding: 30px 20px; //change to rem
 	top: 110px;
 	z-index: -100;
 }

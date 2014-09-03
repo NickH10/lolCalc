@@ -6,10 +6,17 @@ lolCalc.controller("searchCtrl", ["$scope", "$location",
             $scope.placeSub = value;
         });
 
-        $scope.search = function() {
+        $scope.search = function(searchVal) {
+            if(searchVal) {
+                $scope.searchVal = searchVal;//could be optimized
+            }
             if($scope.searchVal !== "" && $scope.userSelection) {
                 $location.path($scope.userSelection+'/'+$scope.searchVal);
             }
+        };
+
+        $scope.goTo = function(location) {
+            $location.path(location);
         };
 
         $scope.goHome = function() {

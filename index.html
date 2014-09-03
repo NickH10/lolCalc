@@ -9,6 +9,8 @@
 		<script src="mvc/controllers/homeController.js"></script>
 		<script src="mvc/controllers/searchController.js"></script>
 		<script src="mvc/controllers/champController.js"></script>
+		<script src="mvc/directives/champDirectives.js"></script>
+
 
 		<script src="mvc/services/lolService.js"></script>
 		<script src="mvc/services/utilService.js"></script>
@@ -22,15 +24,29 @@
 	</head>
 
 	<body>
-		<div class="main-header" ng-controller="searchCtrl">
-			<a href="#" ng-click="goHome()">Home</a>
-			<div class="center-block">
-				<span>Search for: </span>
-				<select class="docnav" ng-model="userSelection" ng-options="val for (key, val) in selections"></select>
-				<input class="topcoat-text-input--large" ng-model="searchVal" placeholder="Find {{placeSub}}" ng-enter="search()">
-				<button class="topcoat-button--large--cta" ng-click="search()">Search</button>
+		<div ng-controller="searchCtrl">
+			<div class="main-header">
+				<a href="#" ng-click="goHome()">Home</a>
+				<div class="center-block">
+					<span>Search for: </span>
+					<select class="docnav" ng-model="userSelection" ng-options="val for (key, val) in selections"></select>
+					<input class="topcoat-text-input--large" ng-model="searchVal" placeholder="Find {{placeSub}}" ng-enter="search()">
+					<button class="topcoat-button--large--cta" ng-click="search()">Search</button>
+				</div>
+				<div></div>
 			</div>
-			<div></div>
+		
+			<div class="topcoat-button-bar">
+				<div class="topcoat-button-bar__item">
+					<button class="topcoat-button-bar__button--large" ng-click="goTo('Champion')">Champions</button>
+				</div>
+				<div class="topcoat-button-bar__item">
+					<button class="topcoat-button-bar__button--large">Runes</button>
+				</div>
+				<div class="topcoat-button-bar__item">
+					<button class="topcoat-button-bar__button--large">Masteries</button>
+				</div>
+			</div>
 		</div>
 
 		<div class="border"></div>

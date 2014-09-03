@@ -6,25 +6,11 @@ module.exports = function(grunt) {
     connect: {
       dev: {
         options: {
-          port: 8999,
-          livereload: 35729,
+          port: 8000,
+          keepalive: true,
+          // livereload: 35729,
           hostname: 'localhost'
         },
-        livereload: {
-          options: {
-            open: { target: 'http://localhost:8999' },
-            base: ['.'],
-                      middleware: function (connect) {
-            return [
-              function(req, res, next) {
-                res.setHeader('Access-Control-Allow-Origin', 'http://0.0.0.0:8999');
-                res.setHeader('Access-Control-Allow-Methods', 'http://0.0.0.0:8999');
-                next();
-              },
-            ];
-          }
-          }
-        }
       }
     },
     watch: {
@@ -32,28 +18,23 @@ module.exports = function(grunt) {
         nospawn: true
       },
       livereload: {
-        options: {
-          livereload: 35729,
-                    middleware: function (connect) {
-            return [
-              function(req, res, next) {
-                res.setHeader('Access-Control-Allow-Origin', 'http://0.0.0.0:8999');
-                res.setHeader('Access-Control-Allow-Methods', 'http://0.0.0.0:8999');
-                next();
-              },
-            ];
-          }
-        },
+        // options: {
+        //   livereload: 35729,
+        // },
         files: [
-          'src/main/*.js',
-          'src/main/*.html'
+          '*.js',
+          '*.html',
+          '*.scss'
+          // 'src/main/*.js',
+          // 'src/main/*.html'
         ]
       }
     },
+    //  sass --watch sass:.
     // sass: {
     //   dist: {
     //     files: {
-    //       'style/style.css' : 'sass/style.scss'
+    //       'style/css/sass' : 'style/css'
     //     }
     //   }
     // },
@@ -72,7 +53,7 @@ module.exports = function(grunt) {
 
   // Default task(s).
   // grunt.registerTask('server', ['connect:dev']);
-  grunt.registerTask('server', ['connect:dev', 'watch']);
+  grunt.registerTask('server', ['connect:dev']);
 
   // A very basic default task.
   // grunt.registerTask('default', 'Log some stuff.', function() {

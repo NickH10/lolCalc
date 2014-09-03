@@ -31,7 +31,6 @@ lolCalc.service("lolService", ["$q", "utilService",
 		// /api/lol/{region}/v1.2/champion/{id}
 		this.getChampById = function(champId, callback) {
 			var deferred = $q.defer();
-			alert(champId);
 			champId = (typeof champId === "undefined" ? "" : "/"+champId+"?");
 			url = utilService.createUrl(authKey, region, baseUrl, champUrl+champId);
 			utilService.getRequest(url)
@@ -44,7 +43,7 @@ lolCalc.service("lolService", ["$q", "utilService",
 		 // /api/lol/static-data/{region}/v1.2/{inputType}/{id}
 		this.getChampData = function(id) {
 			var deferred = $q.defer();
-			id = (typeof id === "undefined" ? "" : "champion/"+id+"?champData=all&");
+			id = (typeof id === "undefined" ? "champion?" : "champion/"+id+"?champData=all&");
 			// id="champion/?champData=all&"
 			url = utilService.createUrl(authKey, region, baseUrl+staticData, staticUrl+id);
 			utilService.getRequest(url)

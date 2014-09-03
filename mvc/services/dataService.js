@@ -29,6 +29,7 @@ lolCalc.service("dataService", [
             "GALIO": 3,
             "GANGPLANK": 41,
             "GAREN": 86,
+            "GNAR": 150,
             "GRAGAS": 79,
             "GRAVES": 104,
             "HECARIM": 120,
@@ -122,7 +123,7 @@ lolCalc.service("dataService", [
             "ZILEAN": 26,
             "ZYRA": 143
         };
-        this.dragonVersion = "4.12.2";
+        this.dragonVersion = "4.15.1";
 
         this.returnChampId = function(champName) {
             champName = champName.replace(/[^A-Z0-9]/ig, "").toUpperCase();

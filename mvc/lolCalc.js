@@ -7,6 +7,11 @@ var lolCalc = angular.module("lolCalc",["ngRoute"])
 		templateUrl:"mvc/views/home.html"
 	})
 
+	.when("/Champion/", {
+		controller: "champCtrl",
+		templateUrl:"mvc/views/champions.html"
+	})
+
 	.when("/Champion/:champId", {
 		controller: "champCtrl",
 		templateUrl:"mvc/views/champion.html"
