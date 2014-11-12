@@ -1,4 +1,5 @@
 * IMPORTANT: new way of getting champ list and ddata without having to manually add info
+* Set up auto generation of css with grunt and sass
 * add dropdown of champ names as you search
 * add search of champs 
 * failure case of getting champ data on champ controller
