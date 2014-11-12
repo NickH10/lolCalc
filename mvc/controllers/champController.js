@@ -1,5 +1,5 @@
-lolCalc.controller("champCtrl", ["$scope", "$q", "$routeParams", "lolService", "dataService",
-	function($scope, $q, $routeParams, lolService, dataService) {
+lolCalc.controller("champCtrl", ["$scope", "$q", "$routeParams", "$location", "lolService", "dataService", 
+	function($scope, $q, $routeParams, $location, lolService, dataService) {
 		this.init = function(){
 			$scope.loaded = false;
 			$scope.dragonVer = dataService.dragonVersion;
@@ -14,5 +14,9 @@ lolCalc.controller("champCtrl", ["$scope", "$q", "$routeParams", "lolService", "
 			});
 		};
 		this.init();
+
+		$scope.goToChamp = function(champ) {
+            $location.path("Champion/"+champ);
+        };
 	}
 ]);

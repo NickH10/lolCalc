@@ -1,0 +1,10 @@
+* IMPORTANT: new way of getting champ list and ddata without having to manually add info
+* add dropdown of champ names as you search
+* add search of champs 
+* failure case of getting champ data on champ controller
+* populate champ pages with all their data
+
+
+blue sky:
+add end url stuff to util service?
+returning more than just data in util service
