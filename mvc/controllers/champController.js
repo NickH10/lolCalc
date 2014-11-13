@@ -2,15 +2,21 @@ lolCalc.controller("champCtrl", ["$scope", "$q", "$routeParams", "$location", "l
 	function($scope, $q, $routeParams, $location, lolService, dataService) {
 		this.init = function(){
 			$scope.loaded = false;
-			$scope.dragonVer = dataService.dragonVersion;
-			var champId = $routeParams.champId ? dataService.returnChampId($routeParams.champId) : undefined;
+			dataService.getVersions()
+			.then(function(versions){
+			    $scope.dragonVer = versions.v;
+			});
 
-			lolService.getChampData(champId)
-			.then(function(data){
-				//TODO failure case
-				$scope.loaded = true;
-				console.log(data);
-				$scope.data = data;
+			dataService.returnChampId($routeParams.champId)
+			.then(function(champId){
+				lolService.getChampData(champId)
+				.then(function(data){
+					//TODO failure case
+					$scope.loaded = true;
+					window.data = data;
+					console.log(data);
+					$scope.data = data;
+				});
 			});
 		};
 		this.init();

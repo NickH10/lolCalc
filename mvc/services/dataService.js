@@ -1,6 +1,49 @@
-lolCalc.service("dataService", [
-    function() {
-        var champList = {
+lolCalc.service("dataService",  ["$q", "utilService", "lolService",
+    function($q, utilService, lolService) {
+      //http://ddragon.leagueoflegends.com/tool/na/en_US
+      //http://ddragon.leagueoflegends.com/realms/na.json
+      var self = this;
+
+      //TODO: use this to add versions to lolservice
+      this.getVersions = function(callback) {
+            var deferred = $q.defer();
+            //TODO: replace na with region somehow (global variables perhaps?)
+            url = "http://ddragon.leagueoflegends.com/realms/na.json"
+            utilService.getRequest(url)
+            .then(function(data){
+                  deferred.resolve(data);
+            });
+            return deferred.promise;
+      };
+
+      //TODO: generate permanent champ list
+      this.generateChampList = function(callback) {
+            var deferred = $q.defer();
+            var champList = {};
+            lolService.getChampData()
+            .then(function(data){
+                  Object.keys(data.data).forEach(function(key) {
+                        champList[key] = data.data[key];
+                  });
+                  deferred.resolve(champList);
+            });
+            return deferred.promise;
+      };
+      // this.generateChampList();
+
+      this.returnChampId = function(champName) {
+            var deferred = $q.defer();
+            if(champName) {
+                  champName = champName.replace(/[^A-Z0-9]/ig, "").toUpperCase();
+                  deferred.resolve(champList[champName]);
+            }
+            else {
+                  deferred.resolve(undefined);
+            }
+            return deferred.promise;
+      };
+
+      var champList = {
             "AATROX": 266,
             "AHRI": 103,
             "AKALI": 84,
@@ -123,12 +166,6 @@ lolCalc.service("dataService", [
             "ZIGGS": 115,
             "ZILEAN": 26,
             "ZYRA": 143
-        };
-        this.dragonVersion = "4.19.3";
-
-        this.returnChampId = function(champName) {
-            champName = champName.replace(/[^A-Z0-9]/ig, "").toUpperCase();
-            return champList[champName];
         };
 
     }

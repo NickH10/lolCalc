@@ -44,10 +44,15 @@ lolCalc.service("lolService", ["$q", "utilService",
 		this.getChampData = function(id) {
 			var deferred = $q.defer();
 			id = (typeof id === "undefined" ? "champion?" : "champion/"+id+"?champData=all&");
-			// id="champion/?champData=all&"
 			url = utilService.createUrl(authKey, region, baseUrl+staticData, staticUrl+id);
 			utilService.getRequest(url)
 			.then(function(data){
+				//if we're getting a list, swap wukong to not be stupid
+				if(typeof data.data != "undefined") {
+					var holder = data.data["MonkeyKing"];
+					delete data.data["MonkeyKing"];
+					data.data["Wukong"] = holder;
+				}
 				deferred.resolve(data);
 			});
 			return deferred.promise;
