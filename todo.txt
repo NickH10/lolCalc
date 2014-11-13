@@ -1,9 +1,7 @@
 * IMPORTANT: new way of getting champ list and ddata without having to manually add info
-	* automate versions for lolservice in dataservice
 	* generate permanent champ list on dataservice without having to contact the api every time
 * Set up auto generation of css with grunt and sass
 * add dropdown of champ names as you search
-* add search of champs 
 * failure case of getting champ data on champ controller
 * populate champ pages with all their data
 * make region gloabl for data service
@@ -18,3 +16,4 @@ blue sky:
 
 fixed!
 * find out how to put stupid wukong where he's supposed to be -_- more graceful solution than currently 
+* automate versions for lolservice in dataservice - not necessary

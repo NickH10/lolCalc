@@ -31,19 +31,23 @@ module.exports = function(grunt) {
       }
     },
     //  sass --watch sass:.
-    // sass: {
-    //   dist: {
-    //     files: {
-    //       'style/css/sass' : 'style/css'
-    //     }
-    //   }
-    // },
-    // watch: {
-    //   css: {
-    //     files: '**/*.scss',
-    //     tasks: ['sass']
-    //   }
-    // }   
+    sass: {
+      dist: {
+        files: [{
+          expand: true,
+          src: ['*.scss'],
+          dest: 'style/css',
+          ext: '.css'
+          // 'style/css/sass' : 'style/css/.'
+        }]
+      }
+    },
+    watch: {
+      css: {
+        files: '**/*.scss',
+        tasks: ['sass']
+      }
+    }   
   });
 
   // Load the plugin that provides the "uglify" task.

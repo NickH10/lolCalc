@@ -1,5 +1,5 @@
-lolCalc.service("dataService",  ["$q", "utilService", "lolService",
-    function($q, utilService, lolService) {
+lolCalc.service("dataService",  ["$q", "utilService",
+    function($q, utilService) {
       //http://ddragon.leagueoflegends.com/tool/na/en_US
       //http://ddragon.leagueoflegends.com/realms/na.json
       var self = this;
@@ -20,13 +20,14 @@ lolCalc.service("dataService",  ["$q", "utilService", "lolService",
       this.generateChampList = function(callback) {
             var deferred = $q.defer();
             var champList = {};
-            lolService.getChampData()
-            .then(function(data){
-                  Object.keys(data.data).forEach(function(key) {
-                        champList[key] = data.data[key];
-                  });
-                  deferred.resolve(champList);
-            });
+            // do this manually using utilservice so we dont get circular dependency
+            // lolService.getChampData()
+            // .then(function(data){
+            //       Object.keys(data.data).forEach(function(key) {
+            //             champList[key] = data.data[key];
+            //       });
+            //       deferred.resolve(champList);
+            // });
             return deferred.promise;
       };
       // this.generateChampList();
