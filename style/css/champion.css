@@ -4,6 +4,13 @@
   justify-content: space-between;
   align-items: center;
   background: url() center; }
+  .character-header .champ-role {
+    font-size: 20px; }
+  .character-header h1,
+  .character-header h2 {
+    margin: 5px; }
+  .character-header li {
+    list-style: none; }
   .character-header img {
     margin-left: auto; }
 

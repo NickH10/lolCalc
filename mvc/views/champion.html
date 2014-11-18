@@ -1,9 +1,32 @@
 <div ng-show="loaded"> 
 	<div class="character-header">
-		<div class="header-title"><h1> {{data.name}} </h1>
-		<h2> {{data.title}} </h2> </div>
+		<div class="header-title">
+			<h1> {{data.name}} </h1>
+			<h2> {{data.title}} </h2> 
+		</div>
+
+		<ul class="champ-role" >
+			<li ng-if="data.tags[0]"> Primary: {{data.tags[0]}} </li>
+			<li ng-if="data.tags[1]"> Secondary: {{data.tags[1]}} </li>
+		</ul>
+
+		<ul class="champ-stats" >
+			<li ng-repeat="(statName, statData) in data.info"> {{ statName }}: {{statData}} </li>
+		</ul>
 
 		<img src="http://ddragon.leagueoflegends.com/cdn/{{dragonVer}}/img/champion/{{data.key}}.png"></img>
-	<div>
+	</div>
+
+	<div class="topcoat-button-bar" ng-init="currentTab = 'abilities'">
+		<div class="topcoat-button-bar__item">
+			<button class="topcoat-button-bar__button--large" ng-click="currentTab = 'abilities'">Abilities</button>
+		</div>
+		<div class="topcoat-button-bar__item">
+			<button class="topcoat-button-bar__button--large" ng-click="currentTab = 'skins'">Skins</button>
+		</div>
+	</div>
+	<p ng-show="currentTab == 'abilities'"> Abilities </p>
+	<p ng-show="currentTab == 'skins'"> Skins </p>
+	
 
 </div>
