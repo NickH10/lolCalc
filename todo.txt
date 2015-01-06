@@ -2,7 +2,7 @@
 	* generate permanent champ list on dataservice without having to contact the api every time
 	* query api ONE time, then populate the service with that info and only call api on specific items/champs/etc...
 * Set up auto generation of css with grunt and sass
-* add dropdown of champ names as you search
+* add dropdown of champ names as you search - https://docs.angularjs.org/api/ng/filter/filter
 * failure case of getting champ data on champ controller
 * populate champ pages with all their data
 * make region gloabl for data service
