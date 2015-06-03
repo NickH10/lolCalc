@@ -19,13 +19,26 @@ lolCalc.service("lolService", ["$q", "utilService",
 			// deferred = $q.defer();
 
 		var	basicCallback = function(error, jsonObj){
-				if(error) {
-					console.log(error);
-				}
-				else {
-					console.log(jsonObj);
-				}
-			};
+			if(error) {
+				console.log(error);
+			}
+			else {
+				console.log(jsonObj);
+			}
+		};
+
+		this.getVersions = function(callback) {
+            var deferred = $q.defer();
+            //TODO: replace na with region somehow (global variables perhaps?
+            // url = "http://ddragon.leagueoflegends.com/realms/na.json"
+            //cors issues, the below url is unacceptable use createurl maybe?
+            url = "https://global.api.pvp.net/api/lol/static-data/na/v1.2/realm?api_key=1b372fc4-967d-4bda-b314-2a679fa18ec7"
+            utilService.getRequest(url)
+            .then(function(data){
+                  deferred.resolve(data);
+            });
+            return deferred.promise;
+		};
 
 		// /api/lol/{region}/v1.2/champion
 		// /api/lol/{region}/v1.2/champion/{id}

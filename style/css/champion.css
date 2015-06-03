@@ -3,7 +3,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: url() center; }
+  background: url() center;
+  margin: 20px auto; }
   .character-header .champ-role {
     font-size: 20px; }
   .character-header h1,
@@ -34,5 +35,3 @@
     flex-direction: column; }
     .champion-block .champion:hover {
       cursor: pointer; }
-
-/*# sourceMappingURL=champion.css.map */

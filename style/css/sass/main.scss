@@ -4,6 +4,12 @@ $background-color: #4b4d4e;
 $regular-font-size: 1rem;
 $large-font-size: 1.5rem;
 
+//for when at work
+img {
+	height:0;
+	width: 0;
+}
+
 .border {
 	border-bottom: 3px solid #58595A;
 }
@@ -35,6 +41,7 @@ $large-font-size: 1.5rem;
 	display: flex;
 	justify-content: center;
 	font-size: $regular-font-size;
+	margin: 20px auto;
 }
 
 .docNav {
@@ -50,6 +57,6 @@ $large-font-size: 1.5rem;
 .loading-screen {
 	position: absolute !important;
 	padding: 30px 20px; //change to rem
-	top: 110px;
+	top: 150px;
 	z-index: -100;
 }

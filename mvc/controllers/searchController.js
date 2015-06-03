@@ -1,7 +1,7 @@
 lolCalc.controller("searchCtrl", ["$scope", "$location",
     function($scope, $location) {
-        $scope.selections = {1:"Champion",2:"Summoner",3:"Team"};
-        $scope.userSelection = "Champion";
+        $scope.selections = {1:"Champions",2:"Summoner",3:"Team"};
+        $scope.userSelection = "Champions";
         $scope.$watch("userSelection", function(value){
             $scope.placeSub = value;
         });
