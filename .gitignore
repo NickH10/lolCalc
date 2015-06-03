@@ -9,5 +9,5 @@ ehthumbs.db
 Thumbs.db
 
 *.map
-style/css/.sass-cache/*
+**/.sass-cache/**
 .gitignore~
