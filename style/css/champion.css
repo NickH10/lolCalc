@@ -1,20 +1,3 @@
-.character-header {
-  border: 3px solid #58595A;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: url() center;
-  margin: 20px auto; }
-  .character-header .champ-role {
-    font-size: 20px; }
-  .character-header h1,
-  .character-header h2 {
-    margin: 5px; }
-  .character-header li {
-    list-style: none; }
-  .character-header img {
-    margin-left: auto; }
-
 .champions-header {
   width: 100%;
   display: inline-flex;
@@ -27,11 +10,45 @@
   align-items: center;
   flex-wrap: wrap; }
 
+.champ-header {
+  border: 3px solid #58595A;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: url() center;
+  margin: 20px auto; }
+  .champ-header .champ-role {
+    font-size: 20px; }
+  .champ-header h1,
+  .champ-header h2 {
+    margin: 5px; }
+  .champ-header li {
+    list-style: none; }
+  .champ-header img {
+    margin-left: auto; }
+
 .champion-block {
   margin: 10px; }
-  .champion-block .champion {
+  .champion-block .champ {
     display: flex;
     align-items: center;
     flex-direction: column; }
-    .champion-block .champion:hover {
+    .champion-block .champ:hover {
       cursor: pointer; }
+
+table.abilities {
+  border: 1px solid #1d1d1d; }
+  table.abilities tr {
+    border-top: 1px solid #1d1d1d; }
+  table.abilities .ability-text {
+    border-left: 1px solid #1d1d1d; }
+  table.abilities td {
+    padding: 20px; }
+  table.abilities .image-text {
+    color: yellow;
+    font-weight: bold;
+    display: block;
+    text-align: center; }
+  table.abilities .ability-name {
+    font-weight: bold;
+    color: red; }

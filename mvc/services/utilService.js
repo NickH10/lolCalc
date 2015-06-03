@@ -1,12 +1,16 @@
 lolCalc.service("utilService", ["$http", "$q",
     function($http, $q) {
-        this.createUrl = function(authKey, region, baseUrl, apiUrl) {
-            //TODO add end url stuff too
-            return "https://" + region + "." + baseUrl + "/" + region + apiUrl + "api_key=" + authKey;
+        var apiKey = "1b372fc4-967d-4bda-b314-2a679fa18ec7",
+            region  = "na";
+
+        this.createUrl = function(subjectUrl, baseUrl) {
+            baseUrl = (typeof baseUrl === 'undefined' ? 
+                "api.pvp.net/api/lol" : baseUrl);
+            return "https://" + region + "." + baseUrl + "/" + region + subjectUrl + "api_key=" + apiKey;
         };
 
+
         this.getRequest = function (path) {
-            //TODO consider returning more than just data
             var deferred = $q.defer();
             $http({method: 'GET', url: path})
             .success(function(data, status, headers, config) {

@@ -1,5 +1,5 @@
 <div ng-show="loaded"> 
-	<div class="character-header">
+	<div class="champ-header">
 		<div class="header-title">
 			<h1> {{data.name}} </h1>
 			<h2> {{data.title}} </h2> 
@@ -25,8 +25,28 @@
 			<button class="topcoat-button-bar__button--large" ng-click="currentTab = 'skins'">Skins</button>
 		</div>
 	</div>
-	<p ng-show="currentTab == 'abilities'"> Abilities </p>
-	<p ng-show="currentTab == 'skins'"> Skins </p>
+	<div ng-show="currentTab == 'abilities'">
+		<table class="abilities">
+			<thead><tr>
+				<!-- <th style="width:10%" class="slot">Slot</th>
+				<th class="ability" style="text-align: center;">Ability</th> -->
+			</tr></thead>
+			<tbody>
+				<tr class="passive">
+					<td><img src="http://ddragon.leagueoflegends.com/cdn/{{dragonVer}}/img/passive/{{data.passive.image.full}}"></img><span class='image-text'>Passive</span></td>
+					<td class="ability-text"><span class="ability-name">{{data.passive.name}}</span>
+					<div class="description">{{data.passive.description}}</div></td>
+				</tr>
+				<tr class="ability" ng-repeat="ability in data.spells">
+					<td><img src="http://ddragon.leagueoflegends.com/cdn/{{dragonVer}}/img/spell/{{ability.image.full}}"></img><span class='image-text'>{{keys[$index]}}</span></td>
+					<td class="ability-text"><span class="ability-name">{{ability.name}}</span>
+						<div class="description">{{ability.description}}</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div ng-show="currentTab == 'skins'"> Skins </div>
 	
 
 </div>

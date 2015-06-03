@@ -1,4 +1,18 @@
-.character-header {
+.champions-header {
+	width:100%;
+	display:inline-flex;
+	justify-content: center;
+	font-size: 1.5rem;
+}	
+
+.champions {
+	display: inline-flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.champ-header {
 	border: 3px solid #58595A;
 	display:flex;
 	justify-content: space-between;
@@ -23,27 +37,42 @@
 		margin-left: auto; 
 	}
 }
-.champions-header {
-	width:100%;
-	display:inline-flex;
-	justify-content: center;
-	font-size: 1.5rem;
-}	
 
-.champions {
-	display: inline-flex;
-	justify-content: space-between;
-	align-items: center;
-	flex-wrap: wrap;
-}
 .champion-block {
 	margin: 10px;
-	.champion {
+	.champ {
 		display: flex;
 		align-items: center;
 		flex-direction: column;
 		&:hover {
 			cursor: pointer;
 		}
+	}
+}
+
+table.abilities {
+	border: 1px solid #1d1d1d;
+
+	tr {
+		border-top: 1px solid #1d1d1d;
+	}
+	.ability-text {
+		border-left: 1px solid #1d1d1d;
+	}
+
+	td {
+		padding: 20px;
+	}
+
+	.image-text{
+		color: yellow;
+		font-weight: bold;
+		display: block;
+		text-align: center;
+	}
+
+	.ability-name {
+		font-weight: bold;
+		color: red;
 	}
 }

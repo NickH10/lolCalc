@@ -5,9 +5,13 @@ $regular-font-size: 1rem;
 $large-font-size: 1.5rem;
 
 //for when at work
-img {
-	height:0;
-	width: 0;
+// img {
+// 	height:0;
+// 	width: 0;
+// }
+
+table {
+	border-collapse: collapse;
 }
 
 .border {
