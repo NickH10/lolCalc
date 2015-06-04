@@ -1,7 +1,8 @@
 lolCalc.service("lolService", ["$q", "utilService",
 	function($q, utilService) {
 
-		var url = "";
+		var url = "",
+			version = null,
 			baseUrl = "api.pvp.net/api/lol",
 			champUrl = "/v1.2/champion",
 			gameUrl = "/v1.3/game/by-summoner/",
@@ -12,8 +13,8 @@ lolCalc.service("lolService", ["$q", "utilService",
 			staticUrl = "/v1.2/",
 			playerStatsUrl = "/v1.3/stats/by-summoner/",
 			summUrl = "/v1.4/summoner/",
-			teamUrl = "/v2.3/team/";
-			// deferred = $q.defer();
+			teamUrl = "/v2.3/team/",
+			allChampData = {};
 
 		var	basicCallback = function(error, jsonObj){
 			if(error) {
@@ -24,24 +25,51 @@ lolCalc.service("lolService", ["$q", "utilService",
 			}
 		};
 
+		function isEmpty(obj) {
+			for(var key in obj) {
+				if (obj.hasOwnProperty(key)) {
+					return false;
+				}
+			}
+			return true;
+		}
+
 		this.getVersions = function(callback) {
-            var deferred = $q.defer();
-            //TODO: replace na with region somehow (global variables perhaps?
-            // url = "http://ddragon.leagueoflegends.com/realms/na.json"
-            //cors issues, the below url is unacceptable use createurl maybe?
-            url = "https://global.api.pvp.net/api/lol/static-data/na/v1.2/realm?api_key=1b372fc4-967d-4bda-b314-2a679fa18ec7"
-            utilService.getRequest(url)
-            .then(function(data){
-                  deferred.resolve(data);
-            });
-            return deferred.promise;
+			var deferred = $q.defer();
+			//TODO: replace na with region somehow (global variables perhaps?
+			//cors issues, the below url is unacceptable use createurl maybe?
+			// url = "http://ddragon.leagueoflegends.com/realms/na.json"
+			if(version){
+				deferred.resolve(version);
+				return deferred.promise;
+			}
+			url = utilService.addKey("https://global.api.pvp.net/api/lol/static-data/na/v1.2/realm?");
+			utilService.getRequest(url)
+			.then(function(data){
+				  // deferred.resolve(data);
+				  deferred.resolve(data.v);
+				  version = data.v;
+			});
+			return deferred.promise;
 		};
 
 		// /api/lol/static-data/{region}/v1.2/{inputType}/{id}
 		this.getChampData = function(id) {
 			var deferred = $q.defer();
-			id = (typeof id === "undefined" ? "champion?" : "champion/"+id+"?champData=all&");
-			url = utilService.createUrl(staticUrl+id, baseUrl+staticData);
+			var singleChamp = (typeof id !== "undefined");
+
+			if(!singleChamp && !isEmpty(allChampData)){
+				deferred.resolve(allChampData);
+				return deferred.promise;
+			}
+
+			if(!singleChamp) {
+				url = utilService.addKey("https://na.api.pvp.net/api/lol/static-data/na/v1.2/champion?");
+			}
+			else {
+				url = utilService.addKey("https://na.api.pvp.net/api/lol/static-data/na/v1.2/champion/"+id+"?champData=all&");
+			}
+
 			utilService.getRequest(url)
 			.then(function(data){
 				//if we're getting a list, swap wukong to not be stupid
@@ -49,6 +77,9 @@ lolCalc.service("lolService", ["$q", "utilService",
 					var holder = data.data["MonkeyKing"];
 					delete data.data["MonkeyKing"];
 					data.data["Wukong"] = holder;
+				}
+				if(!singleChamp){
+					allChampData = data;
 				}
 				deferred.resolve(data);
 			});

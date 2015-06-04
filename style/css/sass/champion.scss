@@ -50,7 +50,7 @@
 	}
 }
 
-table.abilities {
+#abilities {
 	border: 1px solid #1d1d1d;
 
 	tr {
@@ -74,5 +74,19 @@ table.abilities {
 	.ability-name {
 		font-weight: bold;
 		color: red;
+	}
+}
+
+#skin-container {
+	.prev {
+		width: 5%;
+		float: left;
+	}
+	.next {
+		width: 5%;
+		float: right;
+	}
+	.splash-container {
+		width: 90%;
 	}
 }

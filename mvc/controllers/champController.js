@@ -4,8 +4,8 @@ lolCalc.controller("champCtrl", ["$scope", "$q", "$routeParams", "$location", "l
 		this.init = function(){
 			$scope.loaded = false;
 			lolService.getVersions()
-			.then(function(versions){
-			    $scope.dragonVer = versions.v;
+			.then(function(version){
+			    $scope.dragonVer = version;
 			});
 
 			lolService.getChampData($routeParams.champId)
@@ -20,6 +20,13 @@ lolCalc.controller("champCtrl", ["$scope", "$q", "$routeParams", "$location", "l
 
 		$scope.goToChamp = function(champ) {
             $location.path("Champions/"+champ);
+        };
+
+        $scope.switchTo = function(currentTab) {
+        	if(currentTab == "skins" && typeof $scope.skinUrl === "undefined"){
+        		
+        	}
+        	$scope.currentTab = currentTab;
         };
 	}
 ]);

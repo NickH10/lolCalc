@@ -4,10 +4,15 @@ lolCalc.service("utilService", ["$http", "$q",
             region  = "na";
 
         this.createUrl = function(subjectUrl, baseUrl) {
-            baseUrl = (typeof baseUrl === 'undefined' ? 
-                "api.pvp.net/api/lol" : baseUrl);
+            if (typeof baseUrl === 'undefined') {
+                var baseUrl = "api.pvp.net/api/lol";
+            }
             return "https://" + region + "." + baseUrl + "/" + region + subjectUrl + "api_key=" + apiKey;
         };
+
+        this.addKey = function(url) {
+            return url+"api_key="+apiKey;
+        }
 
 
         this.getRequest = function (path) {

@@ -33,21 +33,30 @@
   .champion-block .champ img:hover {
     cursor: pointer; }
 
-table.abilities {
+#abilities {
   border: 1px solid #1d1d1d; }
-  table.abilities tr {
+  #abilities tr {
     border-top: 1px solid #1d1d1d; }
-  table.abilities .ability-text {
+  #abilities .ability-text {
     border-left: 1px solid #1d1d1d; }
-  table.abilities td {
+  #abilities td {
     padding: 20px; }
-  table.abilities .image-text {
+  #abilities .image-text {
     color: yellow;
     font-weight: bold;
     display: block;
     text-align: center; }
-  table.abilities .ability-name {
+  #abilities .ability-name {
     font-weight: bold;
     color: red; }
+
+#skin-container .prev {
+  width: 5%;
+  float: left; }
+#skin-container .next {
+  width: 5%;
+  float: right; }
+#skin-container .splash-container {
+  width: 90%; }
 
 /*# sourceMappingURL=champion.css.map */
