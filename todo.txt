@@ -12,6 +12,7 @@ In Progress:
 * create variables page for sass
 * switch from flex to more reasonable styling rules
 * add header to abilities
+* make tweaks to skins (animations, arrows bordering image, circle logic, better title, etc...)
 
 Blue Sky:
 * add end url stuff to util service?
