@@ -22,7 +22,7 @@
 			<button class="topcoat-button-bar__button--large" ng-click="currentTab = 'abilities'">Abilities</button>
 		</div>
 		<div class="topcoat-button-bar__item">
-			<button class="topcoat-button-bar__button--large" ng-click="switchTo('skins')">Skins</button>
+			<button class="topcoat-button-bar__button--large" ng-click="currentTab = 'skins'">Skins</button>
 		</div>
 	</div>
 	<div ng-show="currentTab == 'abilities'">
@@ -47,10 +47,10 @@
 		</table>
 	</div>
 	<div id="skin-container" ng-show="currentTab == 'skins'">
-		Skins
-		<button class="topcoat-button--large prev">Previous</button>
-		<div class="splash-container"><img src="{{skinUrl}}"></img></div>
-		<button class="topcoat-button--large next">Next</button>
+		<button class="topcoat-button--large prev" ng-click="changeImage('prev')" ng-disabled="prevDis">Prev</button>
+		<span class="skin-name"> {{skin.name}} </span>
+		<div class="splash-container"><img ng-src="{{skin.url}}"></img></div>
+		<button class="topcoat-button--large next" ng-click="changeImage('next')" ng-disabled="nextDis">Next</button>
 	</div>
 	
 

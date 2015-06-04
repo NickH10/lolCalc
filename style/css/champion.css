@@ -51,12 +51,23 @@
     color: red; }
 
 #skin-container .prev {
-  width: 5%;
+  width: 6%;
   float: left; }
 #skin-container .next {
-  width: 5%;
+  width: 6%;
   float: right; }
 #skin-container .splash-container {
-  width: 90%; }
+  width: 88%;
+  margin: 0 auto; }
+  #skin-container .splash-container img {
+    width: 100%; }
+#skin-container .skin-name {
+  position: absolute;
+  left: 50%;
+  right: 50%; }
+#skin-container .prev,
+#skin-container .next,
+#skin-container .splash-container {
+  display: inline-block; }
 
 /*# sourceMappingURL=champion.css.map */

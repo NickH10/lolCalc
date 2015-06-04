@@ -79,14 +79,28 @@
 
 #skin-container {
 	.prev {
-		width: 5%;
+		width: 6%;
 		float: left;
 	}
 	.next {
-		width: 5%;
+		width: 6%;
 		float: right;
 	}
 	.splash-container {
-		width: 90%;
+		width: 88%;
+		margin: 0 auto;
+		img {
+			width: 100%;
+		}
+	}
+	.skin-name {
+		position: absolute;
+		left: 50%;
+		right: 50%;
+	}
+	.prev,
+	.next,
+	.splash-container{
+		display: inline-block;
 	}
 }
