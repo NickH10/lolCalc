@@ -1,21 +1,24 @@
+In Progress:
+* populate champ pages with all their data
+
 * IMPORTANT: new way of getting champ list and ddata without having to manually add info
 	* generate permanent champ list on dataservice without having to contact the api every time
 	* query api ONE time, then populate the service with that info and only call api on specific items/champs/etc...
 * Set up auto generation of css with grunt and sass
 * add dropdown of champ names as you search - https://docs.angularjs.org/api/ng/filter/filter
 * failure case of getting champ data on champ controller
-* populate champ pages with all their data
-* make region gloabl for data service
 * create proper loading screen
 * consider tabbing champion page
 * create variables page for sass
+* switch from flex to more reasonable styling rules
+* add header to abilities
 
-
-blue sky:
+Blue Sky:
 * add end url stuff to util service?
 * returning more than just data in util service
 * find out how to get rid of (GET http://ddragon.leagueoflegends.com/cdn/%7B%7BdragonVer%7D%7D/img/champion/%7B%7BchampData.key%7D%7D.png 404 (Not Found) ) error on champions page
+* make region global for data service - necessary?
 
-fixed!
+Fixed!
 * find out how to put stupid wukong where he's supposed to be -_- more graceful solution than currently 
 * automate versions for lolservice in dataservice - not necessary

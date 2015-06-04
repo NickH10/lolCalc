@@ -1,14 +1,7 @@
 .champions-header {
   width: 100%;
-  display: inline-flex;
-  justify-content: center;
-  font-size: 1.5rem; }
-
-.champions {
-  display: inline-flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap; }
+  font-size: 1.5rem;
+  text-align: center; }
 
 .champ-header {
   border: 3px solid #58595A;
@@ -28,13 +21,17 @@
     margin-left: auto; }
 
 .champion-block {
-  margin: 10px; }
-  .champion-block .champ {
-    display: flex;
-    align-items: center;
-    flex-direction: column; }
-    .champion-block .champ:hover {
-      cursor: pointer; }
+  margin-bottom: 10px; }
+  .champion-block .champ span {
+    display: block;
+    text-align: center; }
+  .champion-block .champ img {
+    display: block;
+    margin: auto;
+    overflow: hidden; }
+  .champion-block .champ span:hover,
+  .champion-block .champ img:hover {
+    cursor: pointer; }
 
 table.abilities {
   border: 1px solid #1d1d1d; }
@@ -52,3 +49,5 @@ table.abilities {
   table.abilities .ability-name {
     font-weight: bold;
     color: red; }
+
+/*# sourceMappingURL=champion.css.map */
