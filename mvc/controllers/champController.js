@@ -19,7 +19,9 @@ lolCalc.controller("champCtrl", ["$scope", "$q", "$routeParams", "$location", "l
 				$scope.loaded = true;
 				console.log(data);
 				$scope.data = data;
-				self.generateSkinUrls(data.key, data.skins);
+				if($routeParams.champId) {
+					self.generateSkinUrls(data.key, data.skins);
+				}
 			});
 		};
 		this.init();
@@ -52,7 +54,7 @@ lolCalc.controller("champCtrl", ["$scope", "$q", "$routeParams", "$location", "l
         };
 
         this.generateSkinUrls = function(champName, skinInfo){
-        	window.skinInfo = skinInfo;
+        	// window.skinInfo = skinInfo;
         	for (var i = 0; i < skinInfo.length; i++){
         		var temp = {};
         		temp['name'] = skinInfo[i].name;

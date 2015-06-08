@@ -1,10 +1,19 @@
-lolCalc.controller("searchCtrl", ["$scope", "$location",
-    function($scope, $location) {
+lolCalc.controller("searchCtrl", ["$scope", "$location", "lolService",
+    function($scope, $location, lolService) {
         $scope.selections = {1:"Champions",2:"Summoner",3:"Team"};
         $scope.userSelection = "Champions";
         $scope.$watch("userSelection", function(value){
             $scope.placeSub = value;
         });
+
+        this.init = function() {
+            lolService.getChampNames()
+            .then(function(champNameList){
+                console.log(champNameList);
+                $scope.champNameList = champNameList;
+            });
+        }
+        this.init();
 
         $scope.search = function(searchVal) {
             if(searchVal) {

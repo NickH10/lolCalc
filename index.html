@@ -32,6 +32,9 @@
 					<span>Search for: </span>
 					<select class="docnav" ng-model="userSelection" ng-options="val for (key, val) in selections"></select>
 					<input class="topcoat-text-input--large" ng-model="searchVal" placeholder="Find {{placeSub}}" ng-enter="search()">
+					<ul id="search-filter-list" ng-show='searchVal && searchVal.length > 1'>
+						<li class="search-list-item" ng-click="search(champ.id)" ng-repeat="champ in champNameList | filter: searchVal">{{champ.name}}</li>
+					</ul>
 					<button class="topcoat-button--large--cta" ng-click="search()">Search</button>
 				</div>
 				<div></div>

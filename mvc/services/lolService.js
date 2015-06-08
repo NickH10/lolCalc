@@ -14,7 +14,8 @@ lolCalc.service("lolService", ["$q", "utilService",
 			playerStatsUrl = "/v1.3/stats/by-summoner/",
 			summUrl = "/v1.4/summoner/",
 			teamUrl = "/v2.3/team/",
-			allChampData = {};
+			allChampData = {},
+			champNameIdList = [];
 
 		var	basicCallback = function(error, jsonObj){
 			if(error) {
@@ -82,6 +83,38 @@ lolCalc.service("lolService", ["$q", "utilService",
 					allChampData = data;
 				}
 				deferred.resolve(data);
+			});
+			return deferred.promise;
+		};
+
+		this.getChampNames = function() {
+			var deferred = $q.defer();
+
+			if(champNameIdList.length !== 0){
+				deferred.resolve(champNameIdList);
+				return deferred.promise;
+			}
+
+			url = utilService.addKey("https://na.api.pvp.net/api/lol/static-data/na/v1.2/champion?");
+
+			utilService.getRequest(url)
+			.then(function(data){
+				//if we're getting a list, swap wukong to not be stupid
+				if(typeof data.data != "undefined") {
+					var holder = data.data["MonkeyKing"];
+					delete data.data["MonkeyKing"];
+					data.data["Wukong"] = holder;
+				}
+
+				for(var key in data.data) {
+					var current = data.data[key];
+					var placeholder = {};
+					placeholder.name = current.name;
+					placeholder.id = current.id;
+					champNameIdList.push(placeholder);
+				}
+
+				deferred.resolve(champNameIdList);
 			});
 			return deferred.promise;
 		};
