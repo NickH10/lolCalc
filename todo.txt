@@ -10,6 +10,7 @@ In Progress:
 * switch from flex to more reasonable styling rules
 * add header to abilities
 * optimize filter, way too slow currently
+* make tweaks to skins (animations, arrows bordering image, circle logic, better title, etc...)
 
 Blue Sky:
 * add end url stuff to util service?
