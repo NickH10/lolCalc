@@ -5,28 +5,20 @@ table {
   border-bottom: 3px solid #58595A; }
 
 .header-container {
-  overflow: hidden;
   padding: 2rem 10rem 1rem 10rem; }
 
-.table-container {
-  display: table;
-  width: 100%;
-  margin: 10px 0; }
-
 .main-header {
-  overflow: hidden;
-  display: table-cell;
-  vertical-align: middle; }
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center; }
   .main-header .topcoat-text-input--large,
   .main-header .topcoat-button--large--cta {
-    font-size: 1.5rem !important; }
+    font-size: 1.5rem !important;
+    margin: 10px !important; }
   .main-header .center-block {
-    display: table;
-    margin: 0 auto; }
-    .main-header .center-block * {
-      display: table-cell;
-      vertical-align: middle;
-      margin: 0 5px; }
+    display: flex;
+    align-items: center; }
 
 #search-filter-list {
   list-style: none;
@@ -42,15 +34,15 @@ table {
     #search-filter-list .search-list-item:hover {
       background: #eee; }
 
+.main-body {
+  padding: 2rem 10rem;
+  background-color: #4b4d4e; }
+
 .topcoat-button-bar {
-  display: table-cell;
-  vertical-align: middle;
+  display: flex;
+  justify-content: center;
   font-size: 1rem;
   margin: 20px auto; }
-
-.button-bar-container {
-  display: table;
-  margin: 0 auto; }
 
 .docNav {
   font-size: 1rem;
@@ -60,10 +52,6 @@ table {
   color: #FFF;
   overflow: hidden;
   padding: 3px 20px 4px 8px; }
-
-.main-body {
-  padding: 2rem 10rem;
-  background-color: #4b4d4e; }
 
 .loading-screen {
   position: absolute !important;
