@@ -25,9 +25,9 @@
 	</head>
 
 	<body>
-		<div ng-controller="searchCtrl">
-			<div class="main-header">
-				<a href="#" ng-click="goHome()">Home</a>
+		<div ng-controller="searchCtrl" class="border header-container">
+			<div class="table-container"><div class="main-header">
+				<!-- <a class="column-2" href="#" ng-click="goHome()">Home</a> -->
 				<div class="center-block">
 					<span>Search for: </span>
 					<select class="docnav" ng-model="userSelection" ng-options="val for (key, val) in selections"></select>
@@ -37,10 +37,10 @@
 					</ul>
 					<button class="topcoat-button--large--cta" ng-click="search()">Search</button>
 				</div>
-				<div></div>
-			</div>
+			</div></div>
 		
-			<div class="topcoat-button-bar">
+			<div class='table-container'><div class="topcoat-button-bar">
+				<div class='button-bar-container'>
 				<div class="topcoat-button-bar__item">
 					<button class="topcoat-button-bar__button--large" ng-click="goTo('Champions')">Champions</button>
 				</div>
@@ -50,10 +50,11 @@
 				<div class="topcoat-button-bar__item">
 					<button class="topcoat-button-bar__button--large">Masteries</button>
 				</div>
-			</div>
+				</div>
+			</div></div>
 		</div>
 
-		<div class="border"></div>
+		<!-- <div class="border"></div> -->
 
 		<div class="loading-screen" ng-include src="'mvc/views/loading.html'"></div>
 		<div class="main-body" ng-show="loaded" ng-view></div>
