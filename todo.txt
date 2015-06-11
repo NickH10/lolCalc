@@ -1,13 +1,13 @@
 In Progress:
 * populate champ pages with all their data
 * add dropdown of champ names as you search - https://docs.angularjs.org/api/ng/filter/filter
+* properly center header on index page
 
 * Set up auto generation of css with grunt and sass
 * failure case of getting champ data on champ controller
 * create proper loading screen
 * consider tabbing champion page
 * create variables page for sass
-* switch from flex to more reasonable styling rules
 * add header to abilities
 * optimize filter, way too slow currently
 * make tweaks to skins (animations, arrows bordering image, circle logic, better title, etc...)
@@ -24,3 +24,4 @@ Fixed!
 * automate versions for lolservice in dataservice - not necessary
 * IMPORTANT: new way of getting champ list and ddata without having to manually add info
 * (tentatively done) generate permanent champ list on dataservice without having to contact the api every time - query api ONE time, then populate the service with that info and only call api on specific items/champs/etc...
+* switch from flex to more reasonable styling rules
