@@ -1,7 +1,8 @@
 lolCalc.service("lolService", ["$q", "utilService",
 	function($q, utilService) {
 
-		var url = "",
+		var self = this,
+			url = "",
 			version = null,
 			baseUrl = "api.pvp.net/api/lol",
 			champUrl = "/v1.2/champion",
@@ -58,6 +59,8 @@ lolCalc.service("lolService", ["$q", "utilService",
 		this.getChampData = function(id) {
 			var deferred = $q.defer();
 			var singleChamp = (typeof id !== "undefined");
+
+			//get champ id here
 
 			if(!singleChamp && !isEmpty(allChampData)){
 				deferred.resolve(allChampData);
@@ -118,6 +121,32 @@ lolCalc.service("lolService", ["$q", "utilService",
 			});
 			return deferred.promise;
 		};
+
+		// this.getChampId = function(name) {
+		// 	var deferred = $q.defer();
+
+		// 	if(champNameIdList.length == 0){
+		// 		self.getChampNames()
+		// 		.then(function(data){
+		// 			for(var i = 0; i < data.length; i++){
+		// 				if(data[i].name = name){
+		// 					deferred.resolve(data[i].id);
+		// 					return deferred.promise;
+		// 				}
+		// 			}
+		// 			deferred.resolve('undefined');
+		// 			return deferred.promise;
+		// 		});
+		// 	}
+		// 	for(var i = 0; i < champNameIdList.length; i++){
+		// 		if(champNameIdList[i].name = name){
+		// 			deferred.resolve(champNameIdList[i].id);
+		// 			return deferred.promise;
+		// 		}
+		// 	}
+		// 	deferred.resolve('undefined');
+		// 	return deferred.promise;
+		// };
 
 		// /api/lol/{region}/v1.2/champion
 		// /api/lol/{region}/v1.2/champion/{id}

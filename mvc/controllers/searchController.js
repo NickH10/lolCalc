@@ -15,14 +15,25 @@ lolCalc.controller("searchCtrl", ["$scope", "$location", "lolService",
         }
         this.init();
 
-        $scope.search = function(searchVal) {
-            if(searchVal) {
-                $scope.searchVal = searchVal;//could be optimized
+        $scope.search = function(champName) {
+            if(typeof(champName) !== 'undefined') {
+                $scope.searchVal = champName;
             }
-            if($scope.searchVal !== "" && $scope.userSelection) {
-                $location.path($scope.userSelection+'/'+$scope.searchVal);
-            }
+            $location.path($scope.userSelection+'/'+$scope.searchVal);
         };
+
+        $scope.$watch('searchVal', function() {
+            $scope.checkSearch();
+        });
+
+        $scope.checkSearch = function(){
+            if(typeof($scope.searchVal) !== 'undefined' && $scope.searchVal.length > 1){
+                $scope.suggestionList = 'suggest';
+            }
+            else {
+                $scope.suggestionList = '';
+            }
+        }
 
         $scope.goTo = function(location) {
             $location.path(location);

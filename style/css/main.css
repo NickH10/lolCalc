@@ -16,23 +16,32 @@ table {
   .main-header .topcoat-button--large--cta {
     font-size: 1.5rem !important;
     margin: 10px !important; }
+  .main-header .topcoat-text-input--large {
+    width: 100%;
+    border-radius: 0px; }
+  .main-header .topcoat-text-input--large:focus {
+    border-bottom: 1px solid #333434 !important;
+    box-shadow: none !important; }
+  .main-header #search-filter-list {
+    list-style: none;
+    border: none;
+    margin: 0 10px !important;
+    border-radius: 0px;
+    cursor: pointer;
+    position: absolute;
+    top: 42px;
+    z-index: 1;
+    padding: 0; }
+    .main-header #search-filter-list .search-list-item {
+      color: white;
+      padding: 5px 10px; }
+      .main-header #search-filter-list .search-list-item:hover {
+        background: #595b5b; }
   .main-header .center-block {
     display: flex;
     align-items: center; }
-
-#search-filter-list {
-  list-style: none;
-  background-color: white;
-  padding-left: 10px;
-  border: 1px solid #C3D0DB;
-  cursor: pointer;
-  position: relative;
-  top: -1px;
-  left: -1px; }
-  #search-filter-list .search-list-item {
-    color: black; }
-    #search-filter-list .search-list-item:hover {
-      background: #eee; }
+  .main-header input.topcoat-text-input--large.suggest {
+    border-bottom: none; }
 
 .main-body {
   padding: 2rem 10rem;

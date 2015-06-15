@@ -13,13 +13,13 @@ lolCalc.controller("champCtrl", ["$scope", "$q", "$routeParams", "$location", "l
 			    $scope.dragonVer = version;
 			});
 
-			lolService.getChampData($routeParams.champId)
+			lolService.getChampData($routeParams.champName)
 			.then(function(data){
 				//TODO failure case
 				$scope.loaded = true;
 				console.log(data);
 				$scope.data = data;
-				if($routeParams.champId) {
+				if($routeParams.champName) {
 					self.generateSkinUrls(data.key, data.skins);
 				}
 			});
