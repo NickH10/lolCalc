@@ -15,19 +15,10 @@ lolCalc.service("lolService", ["$q", "utilService",
 			playerStatsUrl = "/v1.3/stats/by-summoner/",
 			summUrl = "/v1.4/summoner/",
 			teamUrl = "/v2.3/team/",
-			allChampData = {},
+			allChampData = [],
 			champNameIdList = [];
 
-		var	basicCallback = function(error, jsonObj){
-			if(error) {
-				console.log(error);
-			}
-			else {
-				console.log(jsonObj);
-			}
-		};
-
-		function isEmpty(obj) {
+		var isEmpty = function(obj) {
 			for(var key in obj) {
 				if (obj.hasOwnProperty(key)) {
 					return false;
@@ -56,11 +47,14 @@ lolCalc.service("lolService", ["$q", "utilService",
 		};
 
 		// /api/lol/static-data/{region}/v1.2/{inputType}/{id}
-		this.getChampData = function(id) {
+		this.getChampData = function(name) {
 			var deferred = $q.defer();
-			var singleChamp = (typeof id !== "undefined");
+			var singleChamp = (typeof name !== "undefined");
 
 			//get champ id here
+			if(singleChamp){
+				var id = self.getChampId(name);
+			}
 
 			if(!singleChamp && !isEmpty(allChampData)){
 				deferred.resolve(allChampData);
@@ -122,31 +116,34 @@ lolCalc.service("lolService", ["$q", "utilService",
 			return deferred.promise;
 		};
 
-		// this.getChampId = function(name) {
-		// 	var deferred = $q.defer();
-
-		// 	if(champNameIdList.length == 0){
-		// 		self.getChampNames()
-		// 		.then(function(data){
-		// 			for(var i = 0; i < data.length; i++){
-		// 				if(data[i].name = name){
-		// 					deferred.resolve(data[i].id);
-		// 					return deferred.promise;
-		// 				}
-		// 			}
-		// 			deferred.resolve('undefined');
-		// 			return deferred.promise;
-		// 		});
-		// 	}
-		// 	for(var i = 0; i < champNameIdList.length; i++){
-		// 		if(champNameIdList[i].name = name){
-		// 			deferred.resolve(champNameIdList[i].id);
-		// 			return deferred.promise;
-		// 		}
-		// 	}
-		// 	deferred.resolve('undefined');
-		// 	return deferred.promise;
-		// };
+		this.getChampId = function(name){
+			var safe = name.replace(/[^\w]/gi, '').toLowerCase();
+			var id = null;
+			if(champNameIdList.length !== 0){
+				for(var i = 0; i < champNameIdList.length; i++){
+					if(safe == champNameIdList[i].name.replace(/[^\w]/gi, '').toLowerCase()){
+						return champNameIdList[i].id;
+					}
+				}
+			}
+			else if(!isEmpty(allChampData)){
+				for(var key in allChampData.data) {
+					if(safe = key.replace(/[^\w]/gi, '').toLowerCase()){
+						return allChampData.data[key].id;
+					}
+				}
+			}
+			else{
+				self.getChampNames()
+            	.then(function(champNameList){
+            		for(var i = 0; i < champNameList.length; i++){
+						if(safe == champNameList[i].name.replace(/[^\w]/gi, '').toLowerCase()){
+							return champNameList[i].id;
+						}
+					}
+            	});
+			}
+		};
 
 		// /api/lol/{region}/v1.2/champion
 		// /api/lol/{region}/v1.2/champion/{id}
@@ -238,5 +235,14 @@ lolCalc.service("lolService", ["$q", "utilService",
 			url = utilService.createUrl(teamUrl+teamId+"?");
 			utilService.getRequest(url, callback);
 		}
+
+		var	basicCallback = function(error, jsonObj){
+			if(error) {
+				console.log(error);
+			}
+			else {
+				console.log(jsonObj);
+			}
+		};
 	}
 ]);
