@@ -9,7 +9,15 @@ lolCalc.controller("searchCtrl", ["$scope", "$location", "lolService",
         this.init = function() {
             lolService.getChampNames()
             .then(function(champNameList){
-                // console.log(champNameList);
+                console.log(champNameList);
+                window.champNameList = champNameList;
+                window.blah = function(champname){
+                    for(var i = 0; i < champNameList.length; i++){
+                    if(champname == champNameList[i].name.replace(/[^\w]/gi, '').toLowerCase()){
+                            console.log(champNameList[i]);
+                        }
+                    }
+                }
                 $scope.champNameList = champNameList;
             });
         }

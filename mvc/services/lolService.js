@@ -74,19 +74,6 @@ lolCalc.service("lolService", ["$q", "utilService",
 				});
 			}
 
-			// utilService.getRequest(url)
-			// .then(function(data){
-			// 	//if we're getting a list, swap wukong to not be stupid
-			// 	if(typeof data.data != "undefined") {
-			// 		var holder = data.data["MonkeyKing"];
-			// 		delete data.data["MonkeyKing"];
-			// 		data.data["Wukong"] = holder;
-			// 	}
-			// 	if(!singleChamp){
-			// 		allChampData = data;
-			// 	}
-			// 	deferred.resolve(data);
-			// });
 			return deferred.promise;
 		};
 
