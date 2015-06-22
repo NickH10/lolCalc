@@ -51,11 +51,6 @@ lolCalc.service("lolService", ["$q", "utilService",
 			var deferred = $q.defer();
 			var singleChamp = (typeof name !== "undefined");
 
-			//get champ id here
-			if(singleChamp){
-				var id = self.getChampId(name);
-			}
-
 			if(!singleChamp && !isEmpty(allChampData)){
 				deferred.resolve(allChampData);
 				return deferred.promise;
@@ -63,10 +58,40 @@ lolCalc.service("lolService", ["$q", "utilService",
 
 			if(!singleChamp) {
 				url = utilService.addKey("https://na.api.pvp.net/api/lol/static-data/na/v1.2/champion?");
+				self.sendRequest(url, singleChamp)
+				.then(function(data){
+					deferred.resolve(data);
+				});
 			}
 			else {
-				url = utilService.addKey("https://na.api.pvp.net/api/lol/static-data/na/v1.2/champion/"+id+"?champData=all&");
+				self.getChampId(name)
+				.then(function(id){
+					url = utilService.addKey("https://na.api.pvp.net/api/lol/static-data/na/v1.2/champion/"+id+"?champData=all&");
+					self.sendRequest(url, singleChamp)
+					.then(function(data){
+						deferred.resolve(data);
+					});
+				});
 			}
+
+			// utilService.getRequest(url)
+			// .then(function(data){
+			// 	//if we're getting a list, swap wukong to not be stupid
+			// 	if(typeof data.data != "undefined") {
+			// 		var holder = data.data["MonkeyKing"];
+			// 		delete data.data["MonkeyKing"];
+			// 		data.data["Wukong"] = holder;
+			// 	}
+			// 	if(!singleChamp){
+			// 		allChampData = data;
+			// 	}
+			// 	deferred.resolve(data);
+			// });
+			return deferred.promise;
+		};
+
+		this.sendRequest = function(url, singleChamp){
+			var deferred = $q.defer();
 
 			utilService.getRequest(url)
 			.then(function(data){
@@ -81,6 +106,7 @@ lolCalc.service("lolService", ["$q", "utilService",
 				}
 				deferred.resolve(data);
 			});
+
 			return deferred.promise;
 		};
 
@@ -117,19 +143,23 @@ lolCalc.service("lolService", ["$q", "utilService",
 		};
 
 		this.getChampId = function(name){
+			var deferred = $q.defer();
+
 			var safe = name.replace(/[^\w]/gi, '').toLowerCase();
 			var id = null;
 			if(champNameIdList.length !== 0){
 				for(var i = 0; i < champNameIdList.length; i++){
 					if(safe == champNameIdList[i].name.replace(/[^\w]/gi, '').toLowerCase()){
-						return champNameIdList[i].id;
+						deferred.resolve(champNameIdList[i].id);
+						break;
 					}
 				}
 			}
 			else if(!isEmpty(allChampData)){
 				for(var key in allChampData.data) {
 					if(safe = key.replace(/[^\w]/gi, '').toLowerCase()){
-						return allChampData.data[key].id;
+						deferred.resolve(allChampData.data[key].id);
+						break;
 					}
 				}
 			}
@@ -138,11 +168,13 @@ lolCalc.service("lolService", ["$q", "utilService",
             	.then(function(champNameList){
             		for(var i = 0; i < champNameList.length; i++){
 						if(safe == champNameList[i].name.replace(/[^\w]/gi, '').toLowerCase()){
-							return champNameList[i].id;
+							deferred.resolve(champNameList[i].id);
+							break;
 						}
 					}
             	});
 			}
+			return deferred.promise;
 		};
 
 		// /api/lol/{region}/v1.2/champion
