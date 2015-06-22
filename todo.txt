@@ -2,7 +2,6 @@ In Progress:
 * populate champ pages with all their data
 * add dropdown of champ names as you search - https://docs.angularjs.org/api/ng/filter/filter
 * properly center header on index page
-* switch to using champion names again
 
 * Set up auto generation of css with grunt and sass
 * failure case of getting champ data on champ controller
@@ -28,3 +27,4 @@ Fixed!
 * (tentatively done) generate permanent champ list on dataservice without having to contact the api every time - query api ONE time, then populate the service with that info and only call api on specific items/champs/etc...
 * switch from flex to more reasonable styling rules
 * fix hiding suggestion menu
+* switch to using champion names again
