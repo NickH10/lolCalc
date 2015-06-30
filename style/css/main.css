@@ -1,3 +1,7 @@
+.hideimages img {
+  height: 0 !important;
+  width: 0 !important; }
+
 table {
   border-collapse: collapse; }
 
@@ -12,16 +16,6 @@ table {
   justify-content: space-between;
   flex-direction: row;
   align-items: center; }
-  .main-header .topcoat-text-input--large,
-  .main-header .topcoat-button--large--cta {
-    font-size: 1.5rem !important;
-    margin: 10px !important; }
-  .main-header .topcoat-text-input--large {
-    width: 100%;
-    border-radius: 0px; }
-  .main-header .topcoat-text-input--large:focus {
-    border-bottom: 1px solid #333434 !important;
-    box-shadow: none !important; }
   .main-header #search-filter-list {
     list-style: none;
     border: none;
@@ -40,12 +34,32 @@ table {
   .main-header .center-block {
     display: flex;
     align-items: center; }
-  .main-header input.topcoat-text-input--large.suggest {
-    border-bottom: none; }
-
-.main-body {
-  padding: 2rem 10rem;
-  background-color: #4b4d4e; }
+  .main-header .docNav {
+    font-size: 1rem;
+    background: #595B5B;
+    box-shadow: 0 0 0 1px #303233;
+    border: none;
+    color: #FFF;
+    overflow: hidden;
+    padding: 3px 20px 4px 8px;
+    margin-right: 10px;
+    font-size: 1.2rem; }
+  .main-header #search-input,
+  .main-header #search-button {
+    display: inline-block;
+    font-size: 1.5rem !important;
+    margin: 10px;
+    line-height: 2rem;
+    border: auto 0 auto 0;
+    margin: auto 0 auto 0; }
+  .main-header #search-input {
+    border-radius: 3px 0 0 3px; }
+    .main-header #search-input:focus {
+      box-shadow: none;
+      border-color: #288edf; }
+  .main-header #search-button {
+    border-radius: 0 3px 3px 0;
+    border-color: #288edf; }
 
 .topcoat-button-bar {
   display: flex;
@@ -53,14 +67,9 @@ table {
   font-size: 1rem;
   margin: 20px auto; }
 
-.docNav {
-  font-size: 1rem;
-  background: #595B5B;
-  box-shadow: 0 0 0 1px #303233;
-  border: none;
-  color: #FFF;
-  overflow: hidden;
-  padding: 3px 20px 4px 8px; }
+.main-body {
+  padding: 2rem 10rem;
+  background-color: #4b4d4e; }
 
 .loading-screen {
   position: absolute !important;

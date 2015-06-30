@@ -6,7 +6,6 @@ In Progress:
 * Set up auto generation of css with grunt and sass
 * failure case of getting champ data on champ controller
 * create proper loading screen
-* consider tabbing champion page
 * create variables page for sass
 * add header to abilities
 * optimize filter, way too slow currently
@@ -20,7 +19,7 @@ Blue Sky:
 * make region global for data service - necessary?
 * restyle everything! box-shadows, nice color schemes, rounded edges, etc...
 
-Fixed!
+Done!
 * find out how to put stupid wukong where he's supposed to be -_- more graceful solution than currently 
 * automate versions for lolservice in dataservice - not necessary
 * IMPORTANT: new way of getting champ list and ddata without having to manually add info
@@ -28,3 +27,4 @@ Fixed!
 * switch from flex to more reasonable styling rules
 * fix hiding suggestion menu
 * switch to using champion names again
+* consider tabbing champion page

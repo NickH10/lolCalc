@@ -5,19 +5,12 @@ lolCalc.controller("searchCtrl", ["$scope", "$location", "lolService",
         $scope.$watch("userSelection", function(value){
             $scope.placeSub = value;
         });
+        $scope.hideImages = true;
 
         this.init = function() {
             lolService.getChampNames()
             .then(function(champNameList){
-                console.log(champNameList);
-                window.champNameList = champNameList;
-                window.blah = function(champname){
-                    for(var i = 0; i < champNameList.length; i++){
-                    if(champname == champNameList[i].name.replace(/[^\w]/gi, '').toLowerCase()){
-                            console.log(champNameList[i]);
-                        }
-                    }
-                }
+                // console.log(champNameList);
                 $scope.champNameList = champNameList;
             });
         }
@@ -27,7 +20,7 @@ lolCalc.controller("searchCtrl", ["$scope", "$location", "lolService",
             if(typeof(champName) !== 'undefined') {
                 $scope.searchVal = champName;
             }
-            $location.path($scope.userSelection+'/'+$scope.searchVal);
+            $location.path($scope.userSelection.toLowerCase()+'/'+$scope.searchVal);
         };
 
         $scope.$watch('searchVal', function() {

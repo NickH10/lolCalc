@@ -39,7 +39,6 @@ lolCalc.service("lolService", ["$q", "utilService",
 			url = utilService.addKey("https://global.api.pvp.net/api/lol/static-data/na/v1.2/realm?");
 			utilService.getRequest(url)
 			.then(function(data){
-				  // deferred.resolve(data);
 				  deferred.resolve(data.v);
 				  version = data.v;
 			});

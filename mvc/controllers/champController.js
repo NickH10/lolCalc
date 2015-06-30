@@ -27,7 +27,7 @@ lolCalc.controller("champCtrl", ["$scope", "$q", "$routeParams", "$location", "l
 		this.init();
 
 		$scope.goToChamp = function(champ) {
-            $location.path("Champions/"+champ);
+            $location.path("champions/"+champ);
         };
 
         $scope.changeImage = function(change) {

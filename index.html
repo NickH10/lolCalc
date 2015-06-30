@@ -24,39 +24,41 @@
 		
 	</head>
 
-	<body>
-		<div class="border header-container" ng-controller="searchCtrl">
-			<div class="main-header">
-				<a href="#" ng-click="goHome()">Home</a>
-				<div class="center-block">
-					<span>Search for: </span>
-					<select class="docnav" ng-model="userSelection" ng-options="val for (key, val) in selections"></select>
-					<div class="bounding-border suggestionList" style="position: relative">
-						<input class="topcoat-text-input--large" ng-class="suggestionList" ng-model="searchVal" placeholder="Find {{placeSub}}" ng-enter="search()">
-						<!-- <ul id="search-filter-list" class='topcoat-text-input--large' ng-show='suggestionList'>
-							<li class="search-list-item" ng-click="search(champ.name)" ng-repeat="champ in champNameList | filter: searchVal">{{champ.name}}</li>
-						</ul> -->
+	<body ng-controller="searchCtrl"><!--want to move controller when done with dev -->
+		<div class='container' ng-class="{hideimages: hideImages}" >
+			<div class="border header-container">
+				<div class="main-header">
+					<!-- <a href="#" ng-click="goHome()">Home</a> -->
+					<button ng-click="hideImages = !hideImages">Images</button>
+					<div class="center-block">
+						<select class="docnav" ng-model="userSelection" ng-options="val for (key, val) in selections"></select>
+						<div id="search-bar" style="position: relative">
+							<input id='search-input' class="topcoat-text-input--large" ng-class="suggestionList" ng-model="searchVal" placeholder="Find {{placeSub}}" ng-enter="search()"><button id='search-button' class="topcoat-button--large--cta" ng-click="search()">Search</button>
+							<!-- <ul id="search-filter-list" class='topcoat-text-input--large' ng-show='suggestionList'>
+								<li class="search-list-item" ng-click="search(champ.name)" ng-repeat="champ in champNameList | filter: searchVal">{{champ.name}}</li>
+							</ul> -->
+							
+						</div>
 					</div>
-					<button class="topcoat-button--large--cta" ng-click="search()">Search</button>
+					<div></div>
 				</div>
-				<div></div>
+			
+				<div class="topcoat-button-bar">
+					<div class="topcoat-button-bar__item">
+						<button class="topcoat-button-bar__button--large" ng-click="goTo('champions')">Champions</button>
+					</div>
+					<div class="topcoat-button-bar__item">
+						<button class="topcoat-button-bar__button--large">Runes</button>
+					</div>
+					<div class="topcoat-button-bar__item">
+						<button class="topcoat-button-bar__button--large">Masteries</button>
+					</div>
+				</div>
 			</div>
-		
-			<div class="topcoat-button-bar">
-				<div class="topcoat-button-bar__item">
-					<button class="topcoat-button-bar__button--large" ng-click="goTo('Champions')">Champions</button>
-				</div>
-				<div class="topcoat-button-bar__item">
-					<button class="topcoat-button-bar__button--large">Runes</button>
-				</div>
-				<div class="topcoat-button-bar__item">
-					<button class="topcoat-button-bar__button--large">Masteries</button>
-				</div>
-			</div>
-		</div>
 
-		<div class="loading-screen" ng-include src="'mvc/views/loading.html'"></div>
-		<div class="main-body" ng-show="loaded" ng-view></div>
+			<div class="loading-screen" ng-include src="'mvc/views/loading.html'"></div>
+			<div class="main-body" ng-show="loaded" ng-view></div>
+		</div>
 	</body>
 
 </html>
