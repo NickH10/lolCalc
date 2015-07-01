@@ -15,7 +15,6 @@ In Progress:
 Blue Sky:
 * add end url stuff to util service?
 * returning more than just data in util service
-* find out how to get rid of (GET http://ddragon.leagueoflegends.com/cdn/%7B%7BdragonVer%7D%7D/img/champion/%7B%7BchampData.key%7D%7D.png 404 (Not Found) ) error on champions page
 * make region global for data service - necessary?
 * restyle everything! box-shadows, nice color schemes, rounded edges, etc...
 
@@ -28,3 +27,5 @@ Done!
 * fix hiding suggestion menu
 * switch to using champion names again
 * consider tabbing champion page
+* find out how to get rid of (GET http://ddragon.leagueoflegends.com/cdn/%7B%7BdragonVer%7D%7D/img/champion/%7B%7BchampData.key%7D%7D.png 404 (Not Found) ) error on champions page (showing up because not using ng-src)
+* added temp favicon

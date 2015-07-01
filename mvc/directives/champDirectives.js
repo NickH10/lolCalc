@@ -3,7 +3,7 @@ lolCalc.directive('champBlock', function() {
 		restrict: 'E',
 		replace: true,
 		template: '<div class="champ" ng-click="goToChamp(champData.name)">\
-				<img src="http://ddragon.leagueoflegends.com/cdn/{{data.version}}/img/champion/{{champData.key}}.png"></img>\
+				<img ng-src="http://ddragon.leagueoflegends.com/cdn/{{data.version}}/img/champion/{{champData.key}}.png"></img>\
 				<span>{{champData.name}}</span>\
 			</div>'
 	};

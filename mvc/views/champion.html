@@ -14,7 +14,7 @@
 			<li ng-repeat="(statName, statData) in data.info"> {{ statName }}: {{statData}} </li>
 		</ul>
 
-		<img src="http://ddragon.leagueoflegends.com/cdn/{{dragonVer}}/img/champion/{{data.key}}.png"></img>
+		<img ng-src="http://ddragon.leagueoflegends.com/cdn/{{dragonVer}}/img/champion/{{data.key}}.png"></img>
 	</div>
 
 	<div class="topcoat-button-bar" ng-init="currentTab = 'abilities'">
@@ -33,12 +33,12 @@
 			</tr></thead>
 			<tbody>
 				<tr class="passive">
-					<td><img src="http://ddragon.leagueoflegends.com/cdn/{{dragonVer}}/img/passive/{{data.passive.image.full}}"></img><span class='image-text'>Passive</span></td>
+					<td><img ng-src="http://ddragon.leagueoflegends.com/cdn/{{dragonVer}}/img/passive/{{data.passive.image.full}}"></img><span class='image-text'>Passive</span></td>
 					<td class="ability-text"><span class="ability-name">{{data.passive.name}}</span>
 					<div class="description">{{data.passive.description}}</div></td>
 				</tr>
 				<tr class="ability" ng-repeat="ability in data.spells">
-					<td><img src="http://ddragon.leagueoflegends.com/cdn/{{dragonVer}}/img/spell/{{ability.image.full}}"></img><span class='image-text'>{{keys[$index]}}</span></td>
+					<td><img ng-src="http://ddragon.leagueoflegends.com/cdn/{{dragonVer}}/img/spell/{{ability.image.full}}"></img><span class='image-text'>{{keys[$index]}}</span></td>
 					<td class="ability-text"><span class="ability-name">{{ability.name}}</span>
 						<div class="description">{{ability.description}}</div>
 					</td>
