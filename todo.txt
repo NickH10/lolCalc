@@ -1,7 +1,6 @@
 In Progress:
 * populate champ pages with all their data
 * redo header style and positioning
-* swap button header bar with hamburger menu
 
 To Do:
 * Set up auto generation of css with grunt and sass
@@ -11,6 +10,7 @@ To Do:
 * add header to abilities
 * make tweaks to skins (animations, arrows bordering image, circle logic, better title, etc...)
 * search: meld search button into input (like google) - done, animate search bar when focused, make search bar longer, make suggestions same size as search bar(not including button), suggestions look better style-wise
+* add fanciness to font icons such as color changes, drop shadows, etc... on hover, click, etc...
 
 Blue Sky:
 * add end url stuff to util service?
@@ -18,6 +18,7 @@ Blue Sky:
 * make region global for data service - necessary?
 * restyle everything! box-shadows, nice color schemes, rounded edges, etc...
 * make clear search button run/look better
+* consider swapping button header bar with hamburger menu or changing style to fit better
 
 Done!
 * find out how to put stupid wukong where he's supposed to be -_- more graceful solution than currently 
