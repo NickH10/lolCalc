@@ -9,7 +9,7 @@ In Progress:
 * add header to abilities
 * optimize filter, way too slow currently
 * make tweaks to skins (animations, arrows bordering image, circle logic, better title, etc...)
-* search: style suggestions, meld search button into input (like google), animate search bar when focused
+* search: meld search button into input (like google) - done, animate search bar when focused, make search bar longer, make suggestions same size as search bar(not including button), suggestions look better style-wise
 
 Blue Sky:
 * add end url stuff to util service?

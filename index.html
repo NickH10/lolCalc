@@ -36,7 +36,8 @@
 					<div class="center-block">
 						<select class="docnav" ng-model="userSelection" ng-options="val for (key, val) in selections"></select>
 						<div id="search-bar" style="position: relative">
-							<button id='search-button' class="topcoat-button--large--cta" ng-click="search()">Search</button><input id='search-input' class="topcoat-text-input--large" ng-class="suggestionList" ng-model="searchVal" placeholder="Find {{placeSub}}" ng-enter="search()">
+							<button id='search-button' class="topcoat-button--large--cta" ng-click="search()">Search</button>
+							<input id='search-input' class="topcoat-text-input--large" ng-class="suggestionList" ng-model="searchVal" placeholder="Find {{placeSub}}" ng-enter="search()">
 							<ul id="search-filter-list" class='topcoat-text-input--large' ng-show='suggestionList'>
 								<li class="search-list-item" ng-click="search(champ.name)" ng-repeat="champ in champNameList | filter: searchVal">{{champ.name}}</li>
 							</ul>
