@@ -1,6 +1,5 @@
 In Progress:
 * populate champ pages with all their data
-* add dropdown of champ names as you search - https://docs.angularjs.org/api/ng/filter/filter
 * properly center header on index page
 
 * Set up auto generation of css with grunt and sass
@@ -29,3 +28,4 @@ Done!
 * consider tabbing champion page
 * find out how to get rid of (GET http://ddragon.leagueoflegends.com/cdn/%7B%7BdragonVer%7D%7D/img/champion/%7B%7BchampData.key%7D%7D.png 404 (Not Found) ) error on champions page (showing up because not using ng-src)
 * added temp favicon
+* add dropdown of champ names as you search - https://docs.angularjs.org/api/ng/filter/filter

@@ -17,7 +17,7 @@ lolCalc.controller("champCtrl", ["$scope", "$q", "$routeParams", "$location", "l
 			.then(function(data){
 				//TODO failure case
 				$scope.loaded = true;
-				console.log(data);
+				// console.log(data);
 				$scope.data = data;
 				if($routeParams.champName) {
 					self.generateSkinUrls(data.key, data.skins);

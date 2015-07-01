@@ -115,6 +115,7 @@ lolCalc.service("lolService", ["$q", "utilService",
 					data.data["Wukong"] = holder;
 				}
 
+				champNameIdList = [];
 				for(var key in data.data) {
 					var current = data.data[key];
 					var placeholder = {};

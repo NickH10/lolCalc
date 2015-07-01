@@ -10,7 +10,7 @@ lolCalc.controller("searchCtrl", ["$scope", "$location", "lolService",
         this.init = function() {
             lolService.getChampNames()
             .then(function(champNameList){
-                // console.log(champNameList);
+                console.log(champNameList);
                 $scope.champNameList = champNameList;
             });
         }
