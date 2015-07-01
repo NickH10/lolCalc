@@ -36,6 +36,11 @@ lolCalc.controller("searchCtrl", ["$scope", "$location", "lolService",
             }
         }
 
+        $scope.clearSearch = function(){
+            $scope.searchVal = '';
+            document.getElementById('search-input').focus();
+        }
+
         $scope.goTo = function(location) {
             $location.path(location);
         };

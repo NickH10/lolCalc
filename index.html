@@ -24,6 +24,7 @@
 		<link rel="stylesheet" type="text/css" href="style/css/main.css">
 		<link rel="stylesheet" type="text/css" href="style/css/champion.css">
 		<link rel="stylesheet" type="text/css" href="style/css/grid.css">
+		<link rel="stylesheet" type="text/css" href="style/css/fonts.css">
 		
 	</head>
 
@@ -31,20 +32,22 @@
 		<div class='container' ng-class="{hideimages: hideImages}" >
 			<div class="border header-container">
 				<div class="main-header">
-					<!-- <a href="#" ng-click="goHome()">Home</a> -->
-					<button ng-click="hideImages = !hideImages">Images</button>
 					<div class="center-block">
 						<select class="docnav" ng-model="userSelection" ng-options="val for (key, val) in selections"></select>
 						<div id="search-bar" style="position: relative">
 							<button id='search-button' class="topcoat-button--large--cta" ng-click="search()">Search</button>
 							<input id='search-input' class="topcoat-text-input--large" ng-class="suggestionList" ng-model="searchVal" placeholder="Find {{placeSub}}" ng-enter="search()">
+							<span class='icon-search'></span>
+							<span class='icon-cross' ng-show='suggestionList' ng-click="clearSearch()"></span>
 							<ul id="search-filter-list" class='topcoat-text-input--large' ng-show='suggestionList'>
 								<li class="search-list-item" ng-click="search(champ.name)" ng-repeat="champ in champNameList | filter: searchVal">{{champ.name}}</li>
 							</ul>
-							
 						</div>
 					</div>
-					<div></div>
+					<div>
+						<span class='icon-home3' href="#" ng-click="goHome()"></span>
+						<span class='icon-images' ng-click="hideImages = !hideImages"></span>
+					</div>
 				</div>
 			
 				<div class="topcoat-button-bar">

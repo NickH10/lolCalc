@@ -1,6 +1,7 @@
 In Progress:
 * populate champ pages with all their data
 * redo header style and positioning
+* swap button header bar with hamburger menu
 
 To Do:
 * Set up auto generation of css with grunt and sass
@@ -16,6 +17,7 @@ Blue Sky:
 * returning more than just data in util service
 * make region global for data service - necessary?
 * restyle everything! box-shadows, nice color schemes, rounded edges, etc...
+* make clear search button run/look better
 
 Done!
 * find out how to put stupid wukong where he's supposed to be -_- more graceful solution than currently 
@@ -29,4 +31,5 @@ Done!
 * find out how to get rid of (GET http://ddragon.leagueoflegends.com/cdn/%7B%7BdragonVer%7D%7D/img/champion/%7B%7BchampData.key%7D%7D.png 404 (Not Found) ) error on champions page (showing up because not using ng-src)
 * added temp favicon
 * add dropdown of champ names as you search - https://docs.angularjs.org/api/ng/filter/filter
-* * optimize filter, way too slow currently (seemingly fixed)
+* optimize filter, way too slow currently (seemingly fixed)
+* added font icons!
