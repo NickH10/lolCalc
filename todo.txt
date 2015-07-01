@@ -1,13 +1,13 @@
 In Progress:
 * populate champ pages with all their data
-* properly center header on index page
+* redo header style and positioning
 
+To Do:
 * Set up auto generation of css with grunt and sass
 * failure case of getting champ data on champ controller
 * create proper loading screen
 * create variables page for sass
 * add header to abilities
-* optimize filter, way too slow currently
 * make tweaks to skins (animations, arrows bordering image, circle logic, better title, etc...)
 * search: meld search button into input (like google) - done, animate search bar when focused, make search bar longer, make suggestions same size as search bar(not including button), suggestions look better style-wise
 
@@ -29,3 +29,4 @@ Done!
 * find out how to get rid of (GET http://ddragon.leagueoflegends.com/cdn/%7B%7BdragonVer%7D%7D/img/champion/%7B%7BchampData.key%7D%7D.png 404 (Not Found) ) error on champions page (showing up because not using ng-src)
 * added temp favicon
 * add dropdown of champ names as you search - https://docs.angularjs.org/api/ng/filter/filter
+* * optimize filter, way too slow currently (seemingly fixed)
