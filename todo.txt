@@ -1,19 +1,18 @@
 In Progress:
 * populate champ pages with all their data
-* redo header style and positioning
+* make tweaks to skins (animations, arrows bordering image, circle logic, better title, etc...)
 
 To Do:
 * Set up auto generation of css with grunt and sass
 * failure case of getting champ data on champ controller
-* create proper loading screen
+* create proper loading screen (loading.gif!)
 * create variables page for sass
 * add header to abilities
-* make tweaks to skins (animations, arrows bordering image, circle logic, better title, etc...)
 * search: meld search button into input (like google) - done, animate search bar when focused, make search bar longer, make suggestions same size as search bar(not including button), suggestions look better style-wise
 * add fanciness to font icons such as color changes, drop shadows, etc... on hover, click, etc...
+* redo header style and positioning - half done
 
 Blue Sky:
-* add end url stuff to util service?
 * returning more than just data in util service
 * make region global for data service - necessary?
 * restyle everything! box-shadows, nice color schemes, rounded edges, etc...
@@ -34,3 +33,4 @@ Done!
 * add dropdown of champ names as you search - https://docs.angularjs.org/api/ng/filter/filter
 * optimize filter, way too slow currently (seemingly fixed)
 * added font icons!
+* * add end url stuff to util service? (unnecessary now)
