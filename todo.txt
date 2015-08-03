@@ -1,8 +1,10 @@
 In Progress:
 * populate champ pages with all their data
 * make tweaks to skins (animations, arrows bordering image, circle logic, better title, etc...)
+* rebuild directory structure for angular
 
 To Do:
+* when showing and hiding images, header moves over oddly
 * Set up auto generation of css with grunt and sass
 * failure case of getting champ data on champ controller
 * create proper loading screen (loading.gif!)

@@ -1,8 +1,7 @@
 <html ng-app="lolCalc">
 
 	<head>
-		<link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
-		<link rel="icon" href="/img/favicon.ico" type="image/x-icon">
+		<link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon">
 
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.14/angular.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.14/angular-route.min.js"></script>
@@ -20,11 +19,11 @@
 
 		<script src="mvc/directives.js"></script>
 		
-		<link rel="stylesheet" type="text/css" href="style/css/topcoat-desktop-dark.css">
-		<link rel="stylesheet" type="text/css" href="style/css/main.css">
-		<link rel="stylesheet" type="text/css" href="style/css/champion.css">
-		<link rel="stylesheet" type="text/css" href="style/css/grid.css">
-		<link rel="stylesheet" type="text/css" href="style/css/fonts.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/topcoat-desktop-dark.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/main.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/champion.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/grid.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/fonts.css">
 		
 	</head>
 
@@ -34,7 +33,7 @@
 				<div class="main-header">
 					<div class="center-block">
 						<select class="docnav" ng-model="userSelection" ng-options="val for (key, val) in selections"></select>
-						<div id="search-bar" style="position: relative">
+						<div id="search-bar">
 							<button id='search-button' class="topcoat-button--large--cta" ng-click="search()">Search</button>
 							<input id='search-input' class="topcoat-text-input--large" ng-class="suggestionList" ng-model="searchVal" placeholder="Find {{placeSub}}" ng-enter="search()">
 							<span class='icon-search'></span>
