@@ -4,21 +4,21 @@ var lolCalc = angular.module("lolCalc",["ngRoute"])
 
 	.when("/", {
 		controller: "homeCtrl",
-		templateUrl:"mvc/views/home.html"
+		templateUrl:"/app/components/home/home.html"
 	})
 
 	.when("/champions/", {
 		controller: "champCtrl",
-		templateUrl:"mvc/views/champions.html"
+		templateUrl:"/app/components/champion/champions.html"
 	})
 
 	.when("/champions/:champName", {
 		controller: "champCtrl",
-		templateUrl:"mvc/views/champion.html"
+		templateUrl:"/app/components/champion/champion.html"
 	})
 
 	.when("/error", {
-		templateUrl:"mvc/views/error.html"
+		templateUrl:"/app/components/static/error.html"
 	})
 
 })
