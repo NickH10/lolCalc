@@ -2,6 +2,7 @@ In Progress:
 * populate champ pages with all their data
 * make tweaks to skins (animations, arrows bordering image, circle logic, better title, etc...)
 * rebuild directory structure for angular
+* put search into directive to use on all pages instead of having it included on index page
 
 To Do:
 * when showing and hiding images, header moves over oddly
