@@ -36,4 +36,4 @@ Done!
 * add dropdown of champ names as you search - https://docs.angularjs.org/api/ng/filter/filter
 * optimize filter, way too slow currently (seemingly fixed)
 * added font icons!
-* * add end url stuff to util service? (unnecessary now)
+* add end url stuff to util service? (unnecessary now)
