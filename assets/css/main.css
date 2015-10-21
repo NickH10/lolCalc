@@ -74,7 +74,7 @@ table {
     .main-header #search-filter-list .search-list-item {
       color: white;
       padding: 5px 10px; }
-      .main-header #search-filter-list .search-list-item:hover {
+      .main-header #search-filter-list .search-list-item.hovered {
         background: #595b5b; }
 
 .topcoat-button-bar {
@@ -92,3 +92,5 @@ table {
   padding: 30px 20px;
   top: 150px;
   z-index: -100; }
+
+/*# sourceMappingURL=main.css.map */

@@ -3,6 +3,7 @@ In Progress:
 * make tweaks to skins (animations, arrows bordering image, circle logic, better title, etc...)
 * figure out where and how to seperate champion/champions page logic
 * put search into directive to use on all pages instead of having it included on index page
+* fix auto-complete suggestion logic
 
 To Do:
 * when showing and hiding images and changing pages, header moves
@@ -14,6 +15,7 @@ To Do:
 * search: meld search button into input (like google) - done, animate search bar when focused, make search bar longer, make suggestions same size as search bar(not including button), suggestions look better style-wise
 * add fanciness to font icons such as color changes, drop shadows, etc... on hover, click, etc...
 * redo header style and positioning - half done
+* when suggested search is hovered, show that value in input without getting rid of suggestions
 
 Blue Sky:
 * returning more than just data in util service
@@ -38,3 +40,7 @@ Done!
 * added font icons!
 * add end url stuff to util service? (unnecessary now)
 * rebuild directory structure for angular
+
+
+python -m SimpleHTTPServer
+/var/www/lolCalc/assets/css sass --watch sass:.

@@ -27,7 +27,7 @@
 	</head>
 
 	<body ng-controller="searchCtrl"><!--want to move controller when done with dev -->
-		<div class='container' ng-class="{hideimages: hideImages}" >
+		<div class='container' ng-class="{hideimages: hideImages}" ng-navigate="changeIndex('up') changeIndex('down')">
 			<div class="border header-container">
 				<div class="main-header">
 					<div class="center-block">
@@ -38,7 +38,7 @@
 							<span class='icon-search'></span>
 							<span class='icon-cross' ng-show='suggestionList' ng-click="clearSearch()"></span>
 							<ul id="search-filter-list" class='topcoat-text-input--large' ng-show='suggestionList'>
-								<li class="search-list-item" ng-click="search(champ.name)" ng-repeat="champ in champNameList | filter: searchVal">{{champ.name}}</li>
+								<li class="search-list-item" ng-click="search(champ.name)" ng-mouseover="changeIndex($index)" ng-repeat="champ in champNameList | filter: searchVal">{{champ.name}}</li>
 							</ul>
 						</div>
 					</div>

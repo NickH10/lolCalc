@@ -98,7 +98,7 @@ table {
 		.search-list-item {
 			color: white;
 			padding: 5px 10px;
-			&:hover {
+			&.hovered {
 				background: #595b5b;
 			}
 		}
