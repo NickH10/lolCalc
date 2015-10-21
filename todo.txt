@@ -1,15 +1,14 @@
 In Progress:
 * populate champ pages with all their data
-* make tweaks to skins (animations, arrows bordering image, circle logic, better title, etc...)
 * figure out where and how to seperate champion/champions page logic
 * put search into directive to use on all pages instead of having it included on index page
 * fix auto-complete suggestion logic
+* create variables page for sass
 
 To Do:
 * Set up auto generation of css with grunt and sass
 * failure case of getting champ data on champ controller
 * create proper loading screen (loading.gif!)
-* create variables page for sass
 * add header to abilities
 * search: meld search button into input (like google) - done, animate search bar when focused, make search bar longer, make suggestions same size as search bar(not including button), suggestions look better style-wise - done
 * add fanciness to font icons such as color changes, drop shadows, etc... on hover, click, etc...
@@ -22,6 +21,7 @@ Blue Sky:
 * restyle everything! box-shadows, nice color schemes, rounded edges, etc...
 * make clear search button run/look better
 * consider swapping button header bar with hamburger menu or changing style to fit better
+* better skin button logic (looping), make it fancy (animations)
 
 Done!
 * find out how to put stupid wukong where he's supposed to be -_- more graceful solution than currently 
@@ -41,3 +41,4 @@ Done!
 * rebuild directory structure for angular
 * ability to navigate suggestions with arrow keys and enter
 * when showing and hiding images and changing pages, header moves
+* make tweaks to skins (animations, arrows bordering image, circle logic, better title, etc...)

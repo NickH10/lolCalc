@@ -47,10 +47,16 @@
 		</table>
 	</div>
 	<div id="skin-container" ng-show="currentTab == 'skins'">
-		<span class="icon-circle-left prev" ng-click="changeImage('prev')" ng-disabled="prevDis"></span>
 		<span class="skin-name"> {{skin.name}} </span>
-		<div class="splash-container"><img ng-src="{{skin.url}}"></img></div>
-		<span class="icon-circle-right next" ng-click="changeImage('next')" ng-disabled="nextDis"></span>
+		<div class="splash-container">
+			<div class="prev-container" ng-click="changeImage('prev')" ng-hide="prevDis">
+				<span class="icon-circle-left prev" ></span>
+			</div>
+			<img ng-src="{{skin.url}}"></img>
+			<div class="next-container" ng-click="changeImage('next')" ng-hide="nextDis">
+				<span class="icon-circle-right next"></span>
+			</div>
+		</div>
 	</div>
 	
 
