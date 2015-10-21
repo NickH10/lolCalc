@@ -1,5 +1,9 @@
 @import 'variables';
 
+html {
+	overflow-y: scroll;
+}
+
 //for when at work
 .hideimages {
 	img {

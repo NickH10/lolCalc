@@ -6,13 +6,12 @@ In Progress:
 * fix auto-complete suggestion logic
 
 To Do:
-* when showing and hiding images and changing pages, header moves
 * Set up auto generation of css with grunt and sass
 * failure case of getting champ data on champ controller
 * create proper loading screen (loading.gif!)
 * create variables page for sass
 * add header to abilities
-* search: meld search button into input (like google) - done, animate search bar when focused, make search bar longer, make suggestions same size as search bar(not including button), suggestions look better style-wise
+* search: meld search button into input (like google) - done, animate search bar when focused, make search bar longer, make suggestions same size as search bar(not including button), suggestions look better style-wise - done
 * add fanciness to font icons such as color changes, drop shadows, etc... on hover, click, etc...
 * redo header style and positioning - half done
 * when suggested search is hovered, show that value in input without getting rid of suggestions
@@ -40,3 +39,5 @@ Done!
 * added font icons!
 * add end url stuff to util service? (unnecessary now)
 * rebuild directory structure for angular
+* ability to navigate suggestions with arrow keys and enter
+* when showing and hiding images and changing pages, header moves
