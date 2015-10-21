@@ -40,7 +40,3 @@ Done!
 * added font icons!
 * add end url stuff to util service? (unnecessary now)
 * rebuild directory structure for angular
-
-
-python -m SimpleHTTPServer
-/var/www/lolCalc/assets/css sass --watch sass:.
