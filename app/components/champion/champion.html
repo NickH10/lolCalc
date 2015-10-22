@@ -27,11 +27,11 @@
 	</div>
 	<div ng-show="currentTab == 'abilities'">
 		<table id="abilities">
-			<thead><tr>
-				<!-- <th style="width:10%" class="slot">Slot</th>
-				<th class="ability" style="text-align: center;">Ability</th> -->
-			</tr></thead>
 			<tbody>
+				<tr>
+					<th class="slot">Slot</th>
+					<th class="ability" style="text-align: center;">Ability</th>
+				</tr>
 				<tr class="passive">
 					<td><img ng-src="http://ddragon.leagueoflegends.com/cdn/{{dragonVer}}/img/passive/{{data.passive.image.full}}"></img><span class='image-text'>Passive</span></td>
 					<td class="ability-text"><span class="ability-name">{{data.passive.name}}</span>

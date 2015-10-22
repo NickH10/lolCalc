@@ -87,13 +87,18 @@ table {
   margin: 20px auto; }
 
 .main-body {
+  z-index: 10;
   padding: 2rem 10rem;
   background-color: #4b4d4e; }
 
 .loading-screen {
-  position: absolute !important;
-  padding: 30px 20px;
-  top: 150px;
-  z-index: -100; }
+  z-index: -1; }
+  .loading-screen img {
+    z-index: -1;
+    width: 12%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
 
 /*# sourceMappingURL=main.css.map */

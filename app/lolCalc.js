@@ -17,6 +17,10 @@ var lolCalc = angular.module("lolCalc",["ngRoute"])
 		templateUrl:"/app/components/champion/champion.html"
 	})
 
+	.when("/loading", {
+		templateUrl: "/app/components/static/loading.html"
+	})
+
 	.when("/error", {
 		templateUrl:"/app/components/static/error.html"
 	})

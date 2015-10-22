@@ -37,7 +37,8 @@
   border: 1px solid #1d1d1d; }
   #abilities tr {
     border-top: 1px solid #1d1d1d; }
-  #abilities .ability-text {
+  #abilities .ability-text,
+  #abilities .ability {
     border-left: 1px solid #1d1d1d; }
   #abilities td {
     padding: 20px; }
